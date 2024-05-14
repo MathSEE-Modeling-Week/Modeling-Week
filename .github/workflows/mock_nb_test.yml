@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Jupyter Notebook
         run: |
-          pip install notebook
+          pip install notebook nbval pytest
 
       - name: Run Notebook Test
         run: |
