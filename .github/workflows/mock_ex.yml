@@ -42,6 +42,7 @@ jobs:
         docker run -d -p 4243:4243 linusseelinger/benchmark-analytic-gaussian-mixture
 
     - name: Test
+      run: |
         cd mock_exercise/ && \
         python3 test_exercise.py http://localhost:4243
   
