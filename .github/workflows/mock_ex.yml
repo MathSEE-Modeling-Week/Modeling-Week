@@ -39,8 +39,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run Client
       run: |
-        cd mock_exercise/ && \
-          python3 UQ_model.py
+        docker run -it -p 4243:4243 linusseelinger/benchmark-analytic-gaussian-mixture
     - name: Test with pytest
       run: |
         cd mock_exercise/ && \
