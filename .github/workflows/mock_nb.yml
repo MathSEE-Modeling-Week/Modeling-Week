@@ -1,0 +1,49 @@
+# This workflow will install Python dependencies, run tests, and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python-notebooks
+
+name: Python Notebook application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install notebook  # Install Jupyter Notebook
+        pip install pytest
+        pip install umbridge
+        pip install numpy
+        pip install scipy
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # This step can be skipped for Jupyter Notebooks since they don't follow PEP8 conventions
+        echo "Skipping linting for Jupyter Notebooks"
+    - name: Run Jupyter Notebook
+      run: |
+        # Run Jupyter Notebook server in the background
+        jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 &
+        # Wait for the server to start (adjust sleep time as needed)
+        sleep 5
+    - name: Test
+      run: |
+        # Execute test script against running Jupyter Notebook server
+        cd tests/ && \
+        pytest test_notebook.py http://localhost:8888
