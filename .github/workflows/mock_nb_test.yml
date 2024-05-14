@@ -27,4 +27,4 @@ jobs:
 
       - name: Run Notebook Test
         run: |
-          jupyter nbconvert --execute --to notebook --inplace test.ipynb
+          jupyter nbconvert --execute --to notebook --inplace test_simulation.ipynb
