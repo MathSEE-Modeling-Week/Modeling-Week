@@ -36,7 +36,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        cd Modeling-Week/mock_exercise/ && \
-        pytest
+        cd benchmarks/analytic-gaussian-mixture/ && \
+          python3 test_output.py http://localhost:4243
 
         
