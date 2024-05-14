@@ -44,6 +44,5 @@ jobs:
         sleep 5
     - name: Test
       run: |
-        # Execute test script against running Jupyter Notebook server
-        cd tests/ && \
-        pytest test_notebook.py http://localhost:8888
+        # Execute test notebook against running Jupyter Notebook server
+        pytest --nbval --nbval-lax path/to/your_notebook.ipynb
