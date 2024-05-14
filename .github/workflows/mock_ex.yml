@@ -38,7 +38,7 @@ jobs:
     - name: Run Client
       run: |
         cd mock_exercise/ && \
-          python3 UQ_client.py
+          python3 UQ_model.py
     - name: Test with pytest
       run: |
         cd mock_exercise/ && \
