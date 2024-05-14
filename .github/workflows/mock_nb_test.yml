@@ -21,11 +21,10 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Install Jupyter Notebook
+      - name: Install Jupyter Notebook and nbval plugin
         run: |
-          pip install notebook
+          pip install notebook nbval
 
       - name: Run Notebook Test
         run: |
-          cd mock_exercise/ && \
-          jupyter nbconvert --execute --to notebook --inplace test_simulation.ipynb
+          jupyter nbconvert --execute --to notebook --inplace test_monte_carlo_simulation.ipynb
