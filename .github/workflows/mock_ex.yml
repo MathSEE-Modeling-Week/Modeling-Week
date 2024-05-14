@@ -36,7 +36,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        cd Modeling-Week/mock_exercise/ && \
+        https://github.com/MathSEE-Modeling-Week/Modeling-Week/tree/main/mock_exercise && \
           python3 test_output.py http://localhost:4243
 
         
