@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install papermill jupyter numpy math
+        pip install papermill jupyter numpy matplotlib
 
     - name: Run Jupyter Notebooks
       run: |
