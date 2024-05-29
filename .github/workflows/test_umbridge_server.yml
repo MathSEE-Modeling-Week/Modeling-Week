@@ -37,6 +37,9 @@ jobs:
             papermill --progress-bar --cwd "$(dirname "$notebook")" "$notebook" "$notebook"_output.ipynb > /dev/null &
             notebook_pid=$!
 
+            # Sleep for 10 seconds
+            sleep 10
+
             # Run the .py script
             python $script_path
             script_exit_code=$?
