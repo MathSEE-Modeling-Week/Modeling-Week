@@ -28,12 +28,15 @@ jobs:
 
         summary=""
 
+
+        script_path="/test_client/default_client.py"
+
         # Make sure globstar is enabled
         shopt -s globstar
         for notebook in **/*.ipynb; do # Whitespace-safe and recursive
 
-            local notebook=$1
-            local script=$2
+            #local notebook=$1
+            #local script=$2
 
             echo "======================"
             echo "Running $notebook:"
@@ -44,7 +47,7 @@ jobs:
             notebook_pid=$!
 
             # Run the .py script
-            python "$script"
+            python script_path
             script_exit_code=$?
 
             echo ""
