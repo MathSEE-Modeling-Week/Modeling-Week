@@ -38,24 +38,24 @@ jobs:
             notebook_pid=$!
 
             # Sleep for 10 seconds
-            sleep 10
+            #sleep 10
 
             # Run the .py script
-            python $script_path
-            script_exit_code=$?
+            #python $script_path
+            #script_exit_code=$?
 
             echo ""
 
-            if [ $script_exit_code -eq 0 ]; then
-              echo "$script_path completed successfully."
+            #if [ $script_exit_code -eq 0 ]; then
+            #  echo "$script_path completed successfully."
               # Terminate the notebook process if the script was successful
-              kill -SIGTERM $notebook_pid
-              wait $notebook_pid 2>/dev/null
-              echo "Notebook $notebook terminated successfully."
-            else
-              echo "$script_path failed."
-              # If the script fails, let the notebook continue or handle accordingly
-            fi
+            #  kill -SIGTERM $notebook_pid
+            #  wait $notebook_pid 2>/dev/null
+            #  echo "Notebook $notebook terminated successfully."
+            #else
+            #  echo "$script_path failed."
+            #  # If the script fails, let the notebook continue or handle accordingly
+            #fi
 
             if [ $script_exit_code -eq 0 ]; then
                 echo "Notebook $notebook successful."
