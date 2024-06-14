@@ -41,10 +41,12 @@ jobs:
             # Convert notebook to script
             jupyter nbconvert --to script "$notebook"
             notebook_script="${notebook%.ipynb}.py"
+            
 
             # Run the notebook script in the background
             python "$notebook_script" > /dev/null &
             notebook_pid=$!
+            echo "Notebook script PID: $notebook_pid"
             
 
             # Sleep for 10 seconds
@@ -53,6 +55,7 @@ jobs:
             # Run the .py script
             python $script_path
             script_exit_code=$?
+            echo "Script exit code: $script_exit_code"
 
 
 
@@ -75,18 +78,14 @@ jobs:
 
 
             # Terminate the notebook process
-            pkill -P $notebook_pid
-            pkill_exit_code=$?
-            echo "pkill exit code: $pkill_exit_code"
-            if [ $pkill_exit_code -eq 0 ]; then
-              echo "Notebook $notebook terminated successfully."
+            if kill -0 $notebook_pid 2>/dev/null; then
+              echo "Terminating notebook process with PID $notebook_pid"
+              kill $notebook_pid
+              wait $notebook_pid
+              echo "Notebook process terminated."
             else
-              echo "Error terminating notebook $notebook."
+              echo "Notebook process already terminated."
             fi
-
-            wait $notebook_pid 2>/dev/null || true
-
-
 
 
             exit_code=$(($exit_code + $script_exit_code)) # Simply add exit codes; will be zero if all tests successful
