@@ -53,9 +53,11 @@ jobs:
             if [ $script_exit_code -eq 0 ]; then
               echo "$script_path completed successfully."
               summary="$summary\nNotebook $notebook successful"
+              echo "Das ist der exit code: $exit_code"
             else
               echo "Error: $script_path failed with exit code $script_exit_code."
               summary="$summary\nNotebook $notebook FAILED!"
+              echo "Das ist der exit code: $exit_code"
             fi
 
             # Terminate the notebook process
