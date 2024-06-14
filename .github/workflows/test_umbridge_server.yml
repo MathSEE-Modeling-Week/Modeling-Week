@@ -76,8 +76,16 @@ jobs:
 
             # Terminate the notebook process
             pkill -P $notebook_pid
+
+            if [ $? -eq 0 ]; then
+              echo "Notebook $notebook terminated successfully."
+            else
+              echo "Error terminating notebook $notebook."
+            fi
+
+            
             wait $notebook_pid 2>/dev/null
-            echo "Notebook $notebook terminated successfully."
+            #echo "Notebook $notebook terminated successfully."
 
 
 
