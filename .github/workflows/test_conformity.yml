@@ -59,7 +59,7 @@ jobs:
             
 
             # Run the .py script
-            pytest -v $script_path --model_url=${MODEL_URL} --input_value=${INPUT_VALUE}
+            pytest-3 -v $script_path --model_url=${MODEL_URL} --input_value=${INPUT_VALUE}
             #python $script_path
             script_exit_code=$?
             echo "Script exit code: $script_exit_code"
