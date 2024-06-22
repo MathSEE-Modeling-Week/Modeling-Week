@@ -3,6 +3,9 @@ import json
 import jsonschema
 import time
 
+
+
+
 # We assume that pytest runs this first, so that we may wait for the server to spin up
 def test_connection(model_url):
     start_time = time.time()
@@ -77,6 +80,9 @@ def test_evaluate(model_url, input_value):
     assert len(resp.json()["output"]) == len(outputSizesJSON["outputSizes"])
     for i in range(0,len(outputSizesJSON["outputSizes"])):
       assert len(resp.json()["output"][i]) == outputSizesJSON["outputSizes"][i]
+
+    response = requests.get('http://0.0.0.0:4243-0.1')
+    print(response.content)  # Print the raw content of the respons
 
 def test_evaluate_with_wrong_model_name(model_url):
     model_name = "wrong_model_name"
