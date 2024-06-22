@@ -19,71 +19,76 @@ def test_connection(model_url):
             time.sleep(1)
 
 def test_evaluate(model_url, input_value):
+    try:
+        resp_info = requests.get(f'{model_url}/Info')
+        print("Info response content:", resp_info.content)  # Print raw response content
+        assert resp_info.status_code == 200
+        model_name = resp_info.json()["models"][0]
 
-    resp_info = requests.get(f'{model_url}/Info')
-    assert resp_info.status_code == 200
-    model_name = resp_info.json()["models"][0]
+        input_model_name = {"name": model_name}
+        resp_info = requests.post(f'{model_url}/ModelInfo', json=input_model_name)
+        print("ModelInfo response content:", resp_info.content)  # Print raw response content
+        if not resp_info.json()["support"]["Evaluate"]:
+            return
 
-    input_model_name = {"name": model_name}
-    resp_info = requests.post(f'{model_url}/ModelInfo', json=input_model_name)
-    if not resp_info.json()["support"]["Evaluate"]:
-      return
+        inputSizesJSON = requests.post(f'{model_url}/InputSizes', json=input_model_name).json()
+        print("InputSizes response content:", json.dumps(inputSizesJSON, indent=4))  # Print raw response content
 
-    inputSizesJSON = requests.post(f'{model_url}/InputSizes', json=input_model_name).json()
+        inputParams = {"input": [], "name": model_name, "config": {}}
+        for i in range(0, len(inputSizesJSON["inputSizes"])):
+            inputSizesJSON_i = inputSizesJSON["inputSizes"][i]
+            inputSizesJSON_len = len(inputSizesJSON["inputSizes"])
+            # Handles the case for one input vector
+            if hasattr(input_value, '__len__') and inputSizesJSON_len == 1:
+                assert len(input_value) == inputSizesJSON_i
+                inputParams["input"].append(input_value)
+            # The case where there are multiple input vector
+            elif hasattr(input_value, '__len__') and inputSizesJSON_len != 1:
+                assert len(input_value[i]) == inputSizesJSON_i
+                inputParams["input"].append(input_value[i])
+            # Single number entered, will be expanded if sizes unmatched
+            else:
+                inputParams["input"].append([input_value] * inputSizesJSON_i)
+                assert len(inputParams["input"][i]) == inputSizesJSON_i
 
-    inputParams = {"input": [], "name": model_name, "config": {}}
-    for i in range(0, len(inputSizesJSON["inputSizes"])):
-      inputSizesJSON_i = inputSizesJSON["inputSizes"][i]
-      inputSizesJSON_len = len(inputSizesJSON["inputSizes"])
-      # Handles the case for one input vector
-      if hasattr(input_value, '__len__') and inputSizesJSON_len == 1:
-        assert len(input_value) == inputSizesJSON_i
-        inputParams["input"].append(input_value)
-      # The case where there are multiple input vector
-      elif hasattr(input_value, '__len__') and inputSizesJSON_len != 1:
-        assert len(input_value[i]) == inputSizesJSON_i
-        inputParams["input"].append(input_value[i])
-      # Single number entered, will be expanded if sizes unmatched
-      else:
-        inputParams["input"].append([input_value] * inputSizesJSON_i)
-        assert len(inputParams["input"][i]) == inputSizesJSON_i
+        resp = requests.post(f'{model_url}/Evaluate', headers={}, data=json.dumps(inputParams, indent=4))
+        print("Evaluate response content:", resp.content)  # Print raw response content
 
-    resp = requests.post(f'{model_url}/Evaluate', headers={}, data=json.dumps(inputParams,indent=4))
+        assert resp.status_code == 200
 
-    assert resp.status_code == 200
-
-    schema = {
-      "type":"object",
-      "properties":{
-        "output":{
-          "type":"array",
-          "items": {
-            "type":"array",
-            "items": {
-              "type": "number",
+        schema = {
+            "type": "object",
+            "properties": {
+                "output": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number",
+                        },
+                        "minItems": 1
+                    },
+                    "minItems": 1
+                }
             },
-            "minItems": 1
-          },
-          "minItems": 1
+            "required": [
+                "output"
+            ],
+            "additionalProperties": False
         }
-      },
-      "required":[
-        "output"
-      ],
-      "additionalProperties":False
-    }
 
-    jsonschema.validate(instance=resp.json(), schema=schema)
+        jsonschema.validate(instance=resp.json(), schema=schema)
 
-    # Check if outputs have correct dimensions
-    outputSizesJSON = requests.post(f'{model_url}/OutputSizes', json=input_model_name).json()
-    assert len(resp.json()["output"]) == len(outputSizesJSON["outputSizes"])
-    for i in range(0,len(outputSizesJSON["outputSizes"])):
-      assert len(resp.json()["output"][i]) == outputSizesJSON["outputSizes"][i]
-
-    response = requests.get('http://0.0.0.0:4243-0.1')
-    print("#################################THIS IS THE RESPONSE##########################################################")
-    print(response.content)  # Print the raw content of the respons
+        # Check if outputs have correct dimensions
+        outputSizesJSON = requests.post(f'{model_url}/OutputSizes', json=input_model_name).json()
+        print("OutputSizes response content:", json.dumps(outputSizesJSON, indent=4))  # Print raw response content
+        assert len(resp.json()["output"]) == len(outputSizesJSON["outputSizes"])
+        for i in range(0, len(outputSizesJSON["outputSizes"])):
+            assert len(resp.json()["output"][i]) == outputSizesJSON["outputSizes"][i]
+    except requests.exceptions.JSONDecodeError as e:
+        print(f"JSON decoding error: {e}")
+        print(f"Response content: {resp.content}")
+        raise
 
 def test_evaluate_with_wrong_model_name(model_url):
     model_name = "wrong_model_name"
