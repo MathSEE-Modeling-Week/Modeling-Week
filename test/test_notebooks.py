@@ -82,6 +82,7 @@ def test_evaluate(model_url, input_value):
       assert len(resp.json()["output"][i]) == outputSizesJSON["outputSizes"][i]
 
     response = requests.get('http://0.0.0.0:4243-0.1')
+    print("#################################THIS IS THE RESPONSE##########################################################")
     print(response.content)  # Print the raw content of the respons
 
 def test_evaluate_with_wrong_model_name(model_url):
