@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install papermill jupyter numpy matplotlib scipy pytest-3 umbridge
+        pip install papermill jupyter numpy matplotlib scipy pytest umbridge
 
     - name: Test Notebooks with like Docker
       run: |
@@ -59,7 +59,7 @@ jobs:
             
 
             # Run the .py script
-            pytest-3 -v $script_path --model_url=${MODEL_URL} --input_value=${INPUT_VALUE}
+            pytest -v $script_path --model_url=${MODEL_URL} --input_value=${INPUT_VALUE}
             #python $script_path
             script_exit_code=$?
             echo "Script exit code: $script_exit_code"
