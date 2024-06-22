@@ -25,7 +25,7 @@ jobs:
         exit_code=0
         summary=""
         export MODEL_URL="http://0.0.0.0:4243"
-        export INPUT_VALUE="0.0"
+        export INPUT_VALUE="0.1"
         script_path="test/test_notebooks.py"
 
         # Make sure globstar is enabled
