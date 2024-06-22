@@ -1,4 +1,4 @@
-name: Run Jupyter Notebooks
+name: Run Jupyter Notebooks Conformity
 
 on: [push, pull_request]
 
@@ -24,8 +24,8 @@ jobs:
       run: |
         exit_code=0
         summary=""
-        MODEL_URL: "http://0.0.0.0:4243"
-        INPUT_VALUE: "0.0"
+        export MODEL_URL="http://0.0.0.0:4243"
+        export INPUT_VALUE="0.0"
         script_path="test/test_notebooks.py"
 
         # Make sure globstar is enabled
