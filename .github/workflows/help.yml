@@ -1,0 +1,102 @@
+name: SEND HELP
+
+on: [push, pull_request]
+
+jobs:
+  execute-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install papermill jupyter numpy matplotlib scipy pytest umbridge
+
+      - name: Test Notebooks with Docker
+        run: |
+          exit_code=0
+          summary=""
+          export MODEL_URL="http://0.0.0.0:4243"
+          export INPUT_VALUE="0.1"
+          script_path="test/test_notebooks.py"
+
+          # Enable verbose output for debugging
+          set -x
+
+          # Make sure globstar is enabled
+          shopt -s globstar
+
+          for notebook in test_client/*.ipynb; do
+              echo "======================"
+              echo "Running $notebook:"
+              echo ""
+
+              # Convert notebook to script
+              jupyter nbconvert --to script "$notebook"
+              notebook_script="${notebook%.ipynb}.py"
+
+              # Run the notebook script in the background
+              python "$notebook_script" > /dev/null &
+              notebook_pid=$!
+              echo "Notebook script PID: $notebook_pid"
+
+              echo "Waiting for model server to respond at $MODEL_URL..."
+              while ! curl -s "$MODEL_URL/Info" > /dev/null; do
+                sleep 1
+              done
+              echo "Model server responded"
+
+              # Run the .py script in Docker container
+              docker run --network=host -e model_host="$MODEL_URL" linusseelinger/testing-protocol-conformity-current
+
+              script_exit_code=$?
+              echo "Script exit code: $script_exit_code"
+
+              echo ""
+
+              if [ $script_exit_code -eq 0 ]; then
+                echo "$notebook_script completed successfully."
+                summary="$summary\nNotebook $notebook successful"
+              else
+                echo "Error: $notebook_script failed with exit code $script_exit_code."
+                summary="$summary\nNotebook $notebook FAILED!"
+                exit_code=1  # Set exit_code to 1 to indicate some notebooks failed
+              fi
+
+              # Terminate the notebook process if still running
+              if ps -p $notebook_pid > /dev/null; then
+                echo "Terminating notebook process with PID $notebook_pid"
+                kill $notebook_pid
+                wait $notebook_pid
+                echo "Notebook process terminated."
+              else
+                echo "Notebook process already terminated."
+              fi
+
+              echo "======================"
+          done
+
+          echo -e $summary
+
+          # Provide a summary message based on the aggregated results
+          if [ -n "$summary" ]; then
+            echo "Summary of notebook execution:"
+            echo -e $summary
+          fi
+
+          # Exit with appropriate code based on whether any notebooks failed
+          if [ $exit_code -eq 0 ]; then
+              echo "All notebooks successful."
+          else
+              echo "Some notebooks FAILED!"
+          fi
+
+          exit $exit_code
