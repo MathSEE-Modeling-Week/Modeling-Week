@@ -59,7 +59,8 @@ jobs:
             
 
             # Run the .py script
-            pytest -v $script_path --model_url=${MODEL_URL} --input_value=${INPUT_VALUE}
+            docker run -it --network=host -e model_host=http://localhost:4243 linusseelinger/testing-protocol-conformity-current
+            #pytest -v $script_path --model_url=${MODEL_URL} --input_value=${INPUT_VALUE}
             #python $script_path
             script_exit_code=$?
             echo "Script exit code: $script_exit_code"
