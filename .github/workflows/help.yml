@@ -56,7 +56,8 @@ jobs:
 
               # Run the .py script in Docker container
               docker run --network=host -e model_host="$MODEL_URL" linusseelinger/testing-protocol-conformity-current > /dev/null 2>&1 &
-
+              sleep 60
+              
               docker_pid=$!
               echo "Docker command PID: $docker_pid"
 
