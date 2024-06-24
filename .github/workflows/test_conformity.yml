@@ -29,7 +29,7 @@ jobs:
         script_path="test/test_notebooks.py"
 
         # Enable verbose output for debugging
-        set -x
+        #set -x
 
         # Make sure globstar is enabled
         shopt -s globstar
