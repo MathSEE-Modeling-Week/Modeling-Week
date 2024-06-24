@@ -28,6 +28,9 @@ jobs:
         export INPUT_VALUE="0.1"
         script_path="test/test_notebooks.py"
 
+        # Enable verbose output for debugging
+        set -x
+
         # Make sure globstar is enabled
         shopt -s globstar
         for notebook in test_client/*.ipynb; do # Whitespace-safe and recursive
