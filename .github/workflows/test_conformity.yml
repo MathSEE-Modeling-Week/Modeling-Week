@@ -39,19 +39,19 @@ jobs:
             echo ""
 
             # Run the notebook in the background
-            papermill --progress-bar --cwd "$(dirname "$notebook")" "$notebook" "$notebook"_output.ipynb > /dev/null &
-            notebook_pid=$!
+            #papermill --progress-bar --cwd "$(dirname "$notebook")" "$notebook" "$notebook"_output.ipynb > /dev/null &
+            #notebook_pid=$!
 
 
             # Convert notebook to script
-            #jupyter nbconvert --to script "$notebook"
-            #notebook_script="${notebook%.ipynb}.py"
+            jupyter nbconvert --to script "$notebook"
+            notebook_script="${notebook%.ipynb}.py"
             
 
             # Run the notebook script in the background
-            #python "$notebook_script" > /dev/null &
-            #notebook_pid=$!
-            #echo "Notebook script PID: $notebook_pid"
+            python "$notebook_script" > /dev/null &
+            notebook_pid=$!
+            echo "Notebook script PID: $notebook_pid"
             
 
             echo "Waiting for model server to respond at $host:$port..."
