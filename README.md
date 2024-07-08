@@ -6,8 +6,10 @@ To connect various computer programs you will be using UM-Bridge. For the instal
 In this course we are using Uncertainty Quantification models to solve a mathematically models problem:
 ### Models
 ...
-### Uncertainty Quantification model
-...
+### Uncertainty Quantification methods
+- Monte Carlo (MC)
+- Quasi Monte Carlo (QMC)
+- Markov Chain Monte Carlo (MCMC)
 
 In the following a step by step description is given to a first exercise, that will give you an idea of the desired workflow. Afte completing the first exercise or if you are already familiar with the workings of UM-Bridge you can move on to more advanced exercises or work on your own problems. 
 
