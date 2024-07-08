@@ -29,13 +29,14 @@ jobs:
         
         # Convert notebook to script
         cd UQ
-        jupyter nbconvert --to script MC_1.2.ipynb
-        notebook_script="${notebook%.ipynb}.py"
+        #jupyter nbconvert --to script MC_1.2.ipynb
+        #notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        python MC_1.2.py > /dev/null &
-        notebook_pid=$!
-        echo "Notebook script PID: $notebook_pid"
+        jupyter nbconvert --execute --to notebook --inplace MC_1.1.ipynb &
+        #python MC_1.2.py > /dev/null &
+        #notebook_pid=$!
+        #echo "Notebook script PID: $notebook_pid"
             
         echo "Waiting for model server to respond at $host:$port..."
         while ! curl -s "http://0.0.0.0:4242/Info" > /dev/null; do
