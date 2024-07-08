@@ -33,7 +33,9 @@ jobs:
         #notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
+        echo "Hello 1"
         jupyter nbconvert --execute --to notebook --inplace MC_1.1.ipynb &
+        echo "Hello 2"
         #python MC_1.2.py > /dev/null &
         #notebook_pid=$!
         #echo "Notebook script PID: $notebook_pid"
