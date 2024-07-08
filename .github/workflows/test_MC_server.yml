@@ -1,4 +1,4 @@
-name: Run Jupyter Notebooks
+name: Test MC Server
 
 on: [push, pull_request]
 
