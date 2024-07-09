@@ -35,7 +35,7 @@ jobs:
             
         # Run the notebook script in the background
         #jupyter nbconvert --execute --to notebook --inplace MC_1.2.ipynb &
-        jupyter nbconvert --execute --to notebook --inplace minimal_server.ipynb &
+        jupyter nbconvert --execute --to notebook --inplace mc_server.ipynb &
         #python MC_1.2.py > /dev/null &
         #notebook_pid=$!
         #echo "Notebook script PID: $notebook_pid"
