@@ -49,7 +49,7 @@ jobs:
         # Convert client to script
         #jupyter nbconvert --to script MC_1.3.ipynb
         #jupyter nbconvert --execute --to notebook --inplace MC_1.3.ipynb
-        jupyter nbconvert --execute --to notebook --inplace default_client.ipynb
+        jupyter nbconvert --execute --to notebook --inplace default_client_nb.ipynb
         echo "anscheinend sollte es funktioniert haben"
         notebook_script_client="${notebook%.ipynb}.py"
 
