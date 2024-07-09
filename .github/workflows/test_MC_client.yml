@@ -24,29 +24,32 @@ jobs:
       run: |
 
         # Set enviromental variables
-        export MODEL_URL="http://0.0.0.0:4242"
+        export MODEL_URL="http://0.0.0.0:4243"
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
-        cd UQ
+        #cd UQ
+        cd test_client
         #jupyter nbconvert --to script MC_1.2.ipynb
         #notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        jupyter nbconvert --execute --to notebook --inplace MC_1.2.ipynb &
+        #jupyter nbconvert --execute --to notebook --inplace MC_1.2.ipynb &
+        jupyter nbconvert --execute --to notebook --inplace minimal_server.ipynb &
         #python MC_1.2.py > /dev/null &
         #notebook_pid=$!
         #echo "Notebook script PID: $notebook_pid"
             
         echo "Waiting for model server to respond at $host:$port..."
-        while ! curl -s "http://0.0.0.0:4242/Info" > /dev/null; do
+        while ! curl -s "http://0.0.0.0:4243/Info" > /dev/null; do
           sleep 1
         done
         echo "Model server responded"
 
         # Convert client to script
         #jupyter nbconvert --to script MC_1.3.ipynb
-        jupyter nbconvert --execute --to notebook --inplace MC_1.3.ipynb
+        #jupyter nbconvert --execute --to notebook --inplace MC_1.3.ipynb
+        jupyter nbconvert --execute --to notebook --inplace default_client.ipynb
         echo "anscheinend sollte es funktioniert haben"
         notebook_script_client="${notebook%.ipynb}.py"
 
