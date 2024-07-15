@@ -29,13 +29,10 @@ jobs:
         
         # Convert notebook to script
         cd UQ
-        #cd test_client
         jupyter nbconvert --to script MC_1.2.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        #jupyter nbconvert --execute --to notebook --inplace MC_1.2.ipynb &
-        #jupyter nbconvert --execute --to notebook --inplace mc_server.ipynb &
         python MC_1.2.py > /dev/null &
         notebook_pid=$!
         echo "Notebook script PID: $notebook_pid"
@@ -47,11 +44,9 @@ jobs:
         echo "Model server responded"
 
         # Convert client to script
-        #jupyter nbconvert --to script MC_1.3.ipynb
         jupyter nbconvert --execute --to notebook --inplace MC_1.3.ipynb
-        #jupyter nbconvert --execute --to notebook --inplace default_client_nb.ipynb
         echo "anscheinend sollte es funktioniert haben"
-        notebook_script_client="${notebook%.ipynb}.py"
+        #notebook_script_client="${notebook%.ipynb}.py"
 
         # Run client 
         #python MC_1.3.py
