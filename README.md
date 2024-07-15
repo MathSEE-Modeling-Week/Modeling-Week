@@ -11,8 +11,8 @@ In a forward problem, the analysis focuses on understanding how variations in in
 
 Conversely, in inverse problems, the input parameter values are unknown, but an observed outcome is available. The task here is to identify the input values that best explain the observed outcome. When used as input values for a model, those values should lead to an output close to the known observation.
 
-The following exercises will lead you through differnt mathematical models and methods so solve them. You can follow the exercises below and at any point start working on your own projects. 
-The exercises include mathematically modeled problems like the Heat Conduction Model and the 3 Body Problem. For the Uncertainty Quantification methods, you can find examples for calssic Monte Carlo (MC), Quasi Monte Carlo (QMC), and Markov Chain Monte Carlo (MCMC). 
+The following exercises will lead you through differnt mathematical models and methods to solve them. You can follow the exercises below and at any point start working on your own projects. 
+The exercises include mathematically modeled problems like the Heat Conduction Model and the 3 Body Problem. For the Uncertainty Quantification methods, you can find examples for classic Monte Carlo (MC), Quasi Monte Carlo (QMC), and Markov Chain Monte Carlo (MCMC). 
 When moving forward with the exercises we will introduce UM-Bridge. You can check out the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html) and follow the Quickstart Guide and/or the Tutorial to get familiar with UM-Bridge.
 The example solutions are all written in Python so we strongly suggest using Python as well, if you prefer another language make sure it is supported by UM-Bridge.
 
@@ -39,7 +39,7 @@ nest_asyncio.apply()
 
 Compare your implementation to the [example solution](UQ/MC_1.2.ipynb), to make sure your setup is correct.
 
-### 1.3 Monte Carlo as a UM-Bridge client
+### 1.3 Monte Carlo as an UM-Bridge client
 We are now interested in solving the following integral:
 
 $\int^{1}_{0}f(x)dx$.
@@ -56,7 +56,7 @@ Note: If you are running your server and client in a notebook you must put them 
 ## Exercise two
 In the second exercise we explore variations of the Monte Carlo method.
 ### 2.1 Quasi Monte Carlo
-Get familiar with the [quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement the method as a UM-Bridge client.
+Get familiar with the [quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement the method as an UM-Bridge client.
 
 ### 2.2 Markov Chain Monte Carlo
 To solve inverse UQ problems take a look at the [Markov Chain Monte Carlo](UQ/MCMC.ipynb) (MCMC) method. 
@@ -69,7 +69,7 @@ In the following sections, you will explore various models to which you can appl
 Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
 
 ## Exercise three
-In this third exercise we are looking at three more advanced models. All of them concearn a forward UQ problem.
+In this third exercise we are looking at three more advanced models. All of them concern a forward UQ problem.
 ### 3.1 Predator-Prey Dynamical System
 Open the notebook about the [Predator-Prey Dynamical System](UQ/predprey.ipynb). Here you will learn about the model and how to set up your MC client for this specific problem.
 
@@ -77,7 +77,7 @@ Open the notebook about the [Predator-Prey Dynamical System](UQ/predprey.ipynb).
 In [this](CR3BP.ipynb) notebook you can find the discription and implementation of the three body Problem.
 
 ### 3.3 Steady State Heat Conduction Problems
-The third advanced model concearns [Steady State Heat Conduction Problems](Heat_Conduction/Heat_Conduction.ipynb). 
+The third advanced model concerns [Steady State Heat Conduction Problems](Heat_Conduction/Heat_Conduction.ipynb). 
 
 
 
