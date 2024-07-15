@@ -45,11 +45,6 @@ jobs:
 
         # Convert client to script
         jupyter nbconvert --execute --to notebook --inplace MC_1.3.ipynb
-        echo "anscheinend sollte es funktioniert haben"
-        #notebook_script_client="${notebook%.ipynb}.py"
-
-        # Run client 
-        #python MC_1.3.py
         script_exit_code=$?
         echo "Script exit code: $script_exit_code"
 
