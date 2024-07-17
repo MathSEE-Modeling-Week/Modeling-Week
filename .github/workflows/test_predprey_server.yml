@@ -44,8 +44,7 @@ jobs:
         echo "Model server responded"
 
         # Run docker container
-        docker run --network=host -e model_host="$MODEL_URL" intput_value="$INPUT_VALUE" linusseelinger/testing-protocol-conformity-current
-        #docker run --network=host -e model_host="$MODEL_URL" linusseelinger/testing-protocol-conformity-current --input_value=$INPUT_VALUE
+        docker run --network=host -e model_host="$MODEL_URL" -e intput_value="$INPUT_VALUE" linusseelinger/testing-protocol-conformity-current
         script_exit_code=$?
         echo "Script exit code: $script_exit_code"
 
