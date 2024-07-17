@@ -1,4 +1,4 @@
-name: Test MC Client
+name: Test QMC Client
 
 on: [push, pull_request]
 
@@ -29,11 +29,11 @@ jobs:
         
         # Convert notebook to script
         cd UQ
-        jupyter nbconvert --to script QMC_2.2.ipynb
+        jupyter nbconvert --to script MC_1.2.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        python QMC_2.2.py > /dev/null &
+        python MC_1.2.py > /dev/null &
         notebook_pid=$!
         echo "Notebook script PID: $notebook_pid"
             
@@ -44,7 +44,7 @@ jobs:
         echo "Model server responded"
 
         # Convert client to script
-        jupyter nbconvert --execute --to notebook --inplace MC_1.3.ipynb
+        jupyter nbconvert --execute --to notebook --inplace QMC_2.2.ipynb
         script_exit_code=$?
         echo "Script exit code: $script_exit_code"
 
