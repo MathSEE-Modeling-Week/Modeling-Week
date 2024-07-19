@@ -14,7 +14,23 @@ Conversely, in inverse problems, the input parameter values are unknown, but an 
 The following exercises will lead you through differnt mathematical models and methods to solve them. You can follow the exercises below and at any point start working on your own projects. 
 The exercises include mathematically modeled problems like the Heat Conduction Model and the 3 Body Problem. For the Uncertainty Quantification methods, you can find examples for classic Monte Carlo (MC), Quasi Monte Carlo (QMC), and Markov Chain Monte Carlo (MCMC). 
 When moving forward with the exercises we will introduce UM-Bridge. You can check out the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html) and follow the Quickstart Guide and/or the Tutorial to get familiar with UM-Bridge.
-The example solutions are all written in Python so we strongly suggest using Python as well, if you prefer another language make sure it is supported by UM-Bridge.
+The example solutions are all written in Python so we strongly suggest using Python as well, if you prefer another language make sure it is supported by UM-Bridge [here](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
+
+
+## 1 The first exercise
+In the first exercise we are looking at the Predator-Prey model and solve it with the Monte Carlo method.
+
+### 1.1 Predator-Prey Model
+Get familiar with the [Predator-Prey Model](UQ/predprey.ipynb).
+
+### 1.2 Integrate UM-Bridge
+At this point we are writing the model as a UM-Bridge server. Use the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html) to get to know UM-Bridge and then look at the implementation [here](UQ/predprey.model.ipynb).
+
+The purpose of UM-Bridge: UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concearns stay seperated.
+
+### 1.3 Solving the Predator-Prey Model
+To solve the 
+
 
 
 ## 1 The first exercise
