@@ -29,11 +29,11 @@ jobs:
         
         # Convert notebook to script
         cd UQ
-        jupyter nbconvert --to script MC_1.2.ipynb
+        jupyter nbconvert --to script MC_server.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        python MC_1.2.py > /dev/null &
+        python MC_server.py > /dev/null &
         notebook_pid=$!
         echo "Notebook script PID: $notebook_pid"
             
