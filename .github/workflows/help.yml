@@ -34,7 +34,7 @@ jobs:
           # Make sure globstar is enabled
           shopt -s globstar
 
-          for notebook in UQ/*server*.ipynb and Heat_Conduction/*Server*.ipynb ; do
+          for notebook in UQ/*server*.ipynb Heat_Conduction/*server*.ipynb ; do
               echo "======================"
               echo "Running $notebook:"
               echo ""
