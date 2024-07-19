@@ -24,7 +24,7 @@ jobs:
       run: |
 
         # Set enviromental variables
-        export MODEL_URL="http://0.0.0.0:4243"
+        export MODEL_URL="http://0.0.0.0:4242"
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
@@ -38,7 +38,7 @@ jobs:
         echo "Notebook script PID: $notebook_pid"
             
         echo "Waiting for model server to respond at $host:$port..."
-        while ! curl -s "http://0.0.0.0:4244/Info" > /dev/null; do
+        while ! curl -s "http://0.0.0.0:4242/Info" > /dev/null; do
           sleep 1
         done
         echo "Model server responded"
