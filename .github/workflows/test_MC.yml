@@ -28,4 +28,4 @@ jobs:
       - name: Run Notebook Test
         run: |
           cd UQ/ && \
-          jupyter nbconvert --execute --to notebook --inplace MC_1.1.ipynb
+          jupyter nbconvert --execute --to notebook --inplace MC.ipynb
