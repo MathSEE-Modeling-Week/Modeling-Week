@@ -34,7 +34,7 @@ jobs:
           # Make sure globstar is enabled
           shopt -s globstar
 
-          for notebook in test_client/*.ipynb; do
+          for notebook in UQ/*server*.ipynb; do
               echo "======================"
               echo "Running $notebook:"
               echo ""
