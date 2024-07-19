@@ -24,7 +24,7 @@ jobs:
       run: |
 
         # Set enviromental variables
-        export MODEL_URL="http://0.0.0.0:4244"
+        export MODEL_URL="http://0.0.0.0:4243"
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
@@ -44,7 +44,8 @@ jobs:
         echo "Model server responded"
 
         # Run docker container
-        docker run --network=host -e model_host="$MODEL_URL" -e intput_value="0.5" linusseelinger/testing-protocol-conformity-current
+        #docker run --network=host -e model_host="$MODEL_URL" -e intput_value="0.1" linusseelinger/testing-protocol-conformity-current
+        docker run --network=host -e model_host="http://0.0.0.0:4242" -e input_value="0.5" linusseelinger/testing-protocol-conformity-current
         script_exit_code=$?
         echo "Script exit code: $script_exit_code"
 
