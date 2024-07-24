@@ -93,7 +93,7 @@ Open the notebook about the [Predator-Prey Dynamical System](UQ/predprey.ipynb).
 In [this](CR3BP.ipynb) notebook you can find the discription and implementation of the three body Problem.
 
 ### 3.3 Steady State Heat Conduction Problems
-The third advanced model concerns [Steady State Heat Conduction Problems](Heat_Conduction/Heat_Conduction.ipynb). 
+This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Heat_Conduction/heatconduction_MCMC.ipynb)you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
 
 
