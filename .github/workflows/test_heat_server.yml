@@ -33,7 +33,7 @@ jobs:
         notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        python predprey_server.py > /dev/null &
+        python heatconduction_Server.py > /dev/null &
         notebook_pid=$!
         echo "Notebook script PID: $notebook_pid"
             
