@@ -1,0 +1,68 @@
+name: Test heat conduction Server
+
+on: [push, pull_request]
+
+jobs:
+  execute-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install papermill jupyter numpy matplotlib scipy pytest umbridge
+
+    - name: Run UM-Bridge Servers as Notebooks
+      run: |
+
+        # Set enviromental variables
+        export MODEL_URL="http://0.0.0.0:4242"
+        export INPUT_VALUE="0.1"
+        
+        # Convert notebook to script
+        cd UQ
+        jupyter nbconvert --to script heatconduction_Server.ipynb
+        notebook_script="${notebook%.ipynb}.py"
+            
+        # Run the notebook script in the background
+        python predprey_server.py > /dev/null &
+        notebook_pid=$!
+        echo "Notebook script PID: $notebook_pid"
+            
+        echo "Waiting for model server to respond at $host:$port..."
+        while ! curl -s "http://0.0.0.0:4242/Info" > /dev/null; do
+          sleep 1
+        done
+        echo "Model server responded"
+
+        # Run docker container
+        #docker run --network=host -e model_host="$MODEL_URL" -e intput_value="0.1" linusseelinger/testing-protocol-conformity-current
+        docker run --network=host -e model_host="http://0.0.0.0:4242" -e input_value="0.5" linusseelinger/testing-protocol-conformity-current
+        script_exit_code=$?
+        echo "Script exit code: $script_exit_code"
+
+        echo ""
+
+        if [ $script_exit_code -eq 0 ]; then
+          echo "MC clinet completed successfully."
+        else
+          echo "Error: MC client failed with exit code $script_exit_code."
+        fi
+
+        # Terminate the notebook process
+        if kill -0 $notebook_pid 2>/dev/null; then
+          echo "Terminating notebook process with PID $notebook_pid"
+          kill $notebook_pid
+          wait $notebook_pid
+          echo "Notebook process terminated."
+        else
+          echo "Notebook process already terminated."
+        fi
