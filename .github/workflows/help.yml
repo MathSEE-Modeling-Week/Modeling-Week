@@ -1,4 +1,4 @@
-name: SEND HELP
+name: Test all UM-Bridge Servers
 
 on: [push, pull_request]
 
