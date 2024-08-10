@@ -63,7 +63,7 @@ Compare your implementation to the [example solution](UQ/MC_1.2.ipynb), to make 
 ### 2.4 Solve an integral using UM-Bridge
 The last step of this first exercise is to combine the UM-Bridge server and the UM-Bridge client to solve the following integral:
 
-$f(x) = sin(2\pi x)$
+$\int_{0}^{1} f(x) \\textit{d}x$.
 
 First, run the server from **2.3**. Then connect the MC client to the server. Look at the result and vary the sample size until you get a satisfactory result. 
 
