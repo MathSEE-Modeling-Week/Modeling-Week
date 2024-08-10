@@ -29,3 +29,8 @@ jobs:
         run: |
           cd UQ/ && \
           jupyter nbconvert --execute --to notebook --inplace MC.ipynb
+          echo "MC successful"
+          jupyter nbconvert --execute --to notebook --inplace QMC.ipynb
+          echo "QMC successful"
+          jupyter nbconvert --execute --to notebook --inplace MCMC.ipynb
+          echo "MCMC successful"
