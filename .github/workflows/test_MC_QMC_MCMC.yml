@@ -1,4 +1,4 @@
-name: MC Notebook Test
+name: MC, QMC and MCMC Notebook Test
 
 on:
   push:
