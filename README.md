@@ -124,17 +124,44 @@ To access this HPC follow the instruction for the [registration](https://wiki.bw
 To set up UM-Bridge in the HPC log in to the HPC and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
 
 ### 6.3 Run a model on the HPC
-To run a model on the bwUniCluster2.0 it must be put into a container.The prefered container for the bwUniCluster2.0 is Docker but you can also use Singularity. You can follow the example below to run your model on the HPC UM-Bridge setup. 
+To run a model on the bwUniCluster2.0 it must be put into a container.The prefered container for the bwUniCluster2.0 is Docker but you can also use Singularity. You can follow the instructions below to run your model on the HPC UM-Bridge setup. 
 
-1. model as docker container
-2. model on docker hub
-3. import docker image as enroot
-4. create enroot container
-5. start enroot container
-6. edit job.sh
-7. run load-balancer
-8. create tunnel from local machine to hpc
-9. connect client through tunnel
+1. **UM-Bridge server as a Python script:** First you have to have to transfere your UM-Bridge server into a Python script (.py). In the script you can loos the first two lines of code:
+   ```
+   import nest_asyncio
+   nest_asyncio.apply()
+   ```
+   those are only necessary in notebooks.
+3. **Install Docker:** Go to [Docker.com](https://www.docker.com/) and install Docker on your local machine.
+4. **Sign up to Docker Hub:** Go to [Docker Hub](https://hub.docker.com/) and create an account.
+5. **Write a Dockerfile:** To create a Docker container you need to write a Dockerfile and place it into the folder next to your Python script.
+6. **Build the Docker image:** ```docker build -t my_server```
+7. **Run the Docker container:** To finally run your UM-Bridge server from the Docker container do: ```docker run -it -p 4242:4242 my_server```
+8. **Upload the container to Docker Hub:**
+   
+   7.1 **Tag the Docker image:** ```docker tag my_server <yourusername>/my_server:latest```
+   
+   7.2 **Log in to Docker Hub:** ```docker login```
+   
+   7.3 **Push the image to Docker Hub:** ```docker push <yourusername>/my_server:latest```
+   
+   7.4 **Verify the upload:** ```docker run -it -p 4242:4242 <yourusername>/my_server```
+   
+8. **Upload the Docker container to the hpc**
+    
+   8.1 **Log in to bwUniCluster2.0:** ```ssh <username>@bwunicluster.scc.kit.edu```
+
+   
+   8.2 **import the container image with enroot:** ```enroot import docker://<yourusername>/my_server```
+   
+   8.3 **Create a container with enroot:** ```enroot create --name my_server <yourusername>+my_server.sqsh```
+   
+   8.4 **Start the container with enroot:** ```enroot strat my_server```
+   
+9. **Edit job.sh:** Go to the job.sh file in your UM-Bridge HPC setup and add the following line: ```enroot strat my_server```
+10. **Run the load-balancer:** ```./load-balancer```
+11. **Create a tunnel from your local machine to the HPC:** ```ssh <username>@bwunicluster.scc.kit.edu -N -f -L 4242:localhost:4242```
+12. **Connect your UM-Bridge client through the tunnel** by simply running the client on your local machine on port 4242.
 
 
 
