@@ -121,10 +121,10 @@ In this course we are using the [bwUniCluster2.0](https://wiki.bwhpc.de/e/BwUniC
 To access this HPC follow the instruction for the [registration](https://wiki.bwhpc.de/e/Registration/bwUniCluster).
 
 ### 6.2 Set up UM-Bridge
-To set up UM-Bridge in the HPC log in to the HPC and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
+To set up UM-Bridge on the HPC log in to the HPC and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
 
 ### 6.3 Run a model on the HPC
-To run a model on the bwUniCluster2.0 it must be put into a container.The prefered container for the bwUniCluster2.0 is Docker but you can also use Singularity. You can follow the instructions below to run your model on the HPC UM-Bridge setup. 
+To run a model on the bwUniCluster2.0 it must be put into a container. The prefered container for the bwUniCluster2.0 is Docker but you can also use Singularity. You can follow the instructions below to run your model on the HPC UM-Bridge setup. 
 
 1. **UM-Bridge server as a Python script:** First you have to have to transfere your UM-Bridge server into a Python script (.py). In the script you can loos the first two lines of code:
    ```
@@ -137,7 +137,7 @@ To run a model on the bwUniCluster2.0 it must be put into a container.The prefer
 5. **Write a Dockerfile:** To create a Docker container you need to write a Dockerfile and place it into the folder next to your Python script.
 6. **Build the Docker image:** ```docker build -t my_server```
 7. **Run the Docker container:** To finally run your UM-Bridge server from the Docker container do: ```docker run -it -p 4242:4242 my_server```
-8. **Upload the container to Docker Hub:**
+8. **Upload the container to Docker Hub**
    
    7.1 **Tag the Docker image:** ```docker tag my_server <yourusername>/my_server:latest```
    
@@ -147,12 +147,12 @@ To run a model on the bwUniCluster2.0 it must be put into a container.The prefer
    
    7.4 **Verify the upload:** ```docker run -it -p 4242:4242 <yourusername>/my_server```
    
-8. **Upload the Docker container to the hpc**
+8. **Upload the container to the HPC**
     
    8.1 **Log in to bwUniCluster2.0:** ```ssh <username>@bwunicluster.scc.kit.edu```
 
    
-   8.2 **import the container image with enroot:** ```enroot import docker://<yourusername>/my_server```
+   8.2 **Import the container image with enroot:** ```enroot import docker://<yourusername>/my_server```
    
    8.3 **Create a container with enroot:** ```enroot create --name my_server <yourusername>+my_server.sqsh```
    
