@@ -104,7 +104,7 @@ Note: Make sure that the input and output dimensions of your UM-Bridge clients a
 In this fifth exercise we are looking at some more advanced models.
 
 ### 5.1 Three Body Problem
-This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circlar Restricted Three-Body Problem (CR3BP)](CR3BP/CR3BP_OQ.jpynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm](CR3BP/CR3BP_MCMC.jpynb) which is a commonly acknowledge algorithm for MCMC.
+This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circlar Restricted Three-Body Problem (CR3BP)](CR3BP/CR3BP_OQ.jpynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](CR3BP/CR3BP_MCMC.jpynb) which is a commonly acknowledge algorithm for MCMC.
 
 ### 5.2 Steady State Heat Conduction Problems
 This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Heat_Conduction/heatconduction_MCMC.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
