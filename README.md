@@ -67,7 +67,7 @@ The last step of this first exercise is to combine the UM-Bridge server and the 
 
 $\int_{0}^{1} f(x) \\textit{d}x$.
 
-First, run the server from **2.3**. Then connect the MC client to the server. Look at the result and vary the sample size until you get a satisfactory result. 
+First, run the server from **2.2**. Then connect the MC client to the server. Look at the result and vary the sample size until you get a satisfactory result. 
 
 Note: If you are running your server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
 
