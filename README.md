@@ -11,7 +11,7 @@ In a forward problem, the analysis focuses on understanding how variations in in
 
 Conversely, in inverse problems, the input parameter values are unknown, but an observed outcome is available. The task here is to identify the input values that best explain the observed outcome. When used as input values for a model, those values should lead to an output close to the known observation.
 
-The following exercises will lead you through differnt mathematical models and methods to solve them. You can follow the exercises below and at any point start working on your own projects. 
+The following exercises will lead you through different mathematical models and methods to solve them. You can follow the exercises below and at any point start working on your own projects. 
 The exercises include mathematically modeled problems like the Heat Conduction Model and the 3 Body Problem. For the Uncertainty Quantification methods, you can find examples for classic Monte Carlo (MC), Quasi Monte Carlo (QMC), and Markov Chain Monte Carlo (MCMC). In exercise six you will learn how to run your models on a High Performance Computer.
 
 
