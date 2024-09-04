@@ -19,7 +19,7 @@ When moving forward with the exercises we will introduce UM-Bridge. You can chec
 The example solutions are all written in Python so we strongly suggest using Python as well, if you prefer another language make sure it is supported by UM-Bridge [here](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
 
 
-## 1 The first exercise
+## 1 Basic modeling
 In the first exercise we are looking at the Predator-Prey Model.
 
 ### 1.1 Predator-Prey Model
@@ -27,7 +27,11 @@ Get familiar with the [Predator-Prey Dynamical System](UQ/predprey.ipynb).
 
 In exercise three we are going to look at the Predator-Prey Model as a UQ problem.
 
-### 1.2 Integrate UM-Bridge
+## 2 UM-Bridge
+**The purpose of UM-Bridge:** UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concerns stay seperated. (For further information read the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html)).
+
+
+### 2.1 Integrate UM-Bridge with Predator-Prey Model
 Now that you are familiar with the Predator-Prey Dynamical System, you can write the model as a UM-Bridge server.
 Use the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html) to get to know UM-Bridge and then look at the implementation [here](UQ/predprey_server.ipynb).
 
@@ -38,29 +42,27 @@ import nest_asyncio
 nest_asyncio.apply()
 ```
 
-**The purpose of UM-Bridge:** UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concearns stay seperated. (For further information read the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html)).
-
-
-## 2 Second exercise
-In order to solve a Uncertainty Quantification problem a variey of methods can be used. In this exercise we are starting simple by getting to know the Monte Carlo method.
-
-### 2.1 Monte Carlo
-Get familiar with the [Monte Carlo](UQ/MC_1.1.ipynb) (MC) method. 
-In the example we sample from the following distribution:
-
-$X\sim \mathcal{N}(0.5, 0.01)$.
-
-### 2.2 Monte Carlo as an UM-Bridge client
-Implement the MC method as an UM-Bridge client. [Here](UQ/MC_1.3.ipynb) you can find an example client.
-
-### 2.3 A simple model
+### 2.2 A simple model
 Now you can test your MC client on a simple model. Implement a UM-Bridge server that solves the following function:
 
 $f(x) = sin(2\pi x)$
 
 Compare your implementation to the [example solution](UQ/MC_1.2.ipynb), to make sure your setup is correct.
 
-### 2.4 Solve an integral using UM-Bridge
+
+## 3 Basic UQ methods
+In order to solve a Uncertainty Quantification problem a variey of methods can be used. In this exercise we are starting simple by getting to know the Monte Carlo method.
+
+### 3.1 Monte Carlo
+Get familiar with the [Monte Carlo](UQ/MC_1.1.ipynb) (MC) method. 
+In the example we sample from the following distribution:
+
+$X\sim \mathcal{N}(0.5, 0.01)$.
+
+### 3.2 Monte Carlo as an UM-Bridge client
+Implement the MC method as an UM-Bridge client. [Here](UQ/MC_1.3.ipynb) you can find an example client.
+
+### 3.3 Solve an integral using UM-Bridge
 The last step of this first exercise is to combine the UM-Bridge server and the UM-Bridge client to solve the following integral:
 
 $\int_{0}^{1} f(x) \\textit{d}x$.
@@ -70,29 +72,29 @@ First, run the server from **2.3**. Then connect the MC client to the server. Lo
 Note: If you are running your server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
 
 
-## 3 Exercise three
+## 4 UQ application
 In this exercise we are looking at the Predator-Prey Model as a UQ problem and solve it with the MC method
 
-### 3.1 Predator-Prey Model as a UQ problem
+### 4.1 Predator-Prey Model as a UQ problem
 Look at the following [notebook](UQ/predprey_UQ.ipynb) and get familiar with the problem.
 
-### 3.2 MC client for Predator-Prey Model
+### 4.2 MC client for Predator-Prey Model
 Take a look at the [MC client](UQ/predprey_client.ipynb) for the Predator-Prey Model.
 
-### 3.3 Solve the Predator-Prey UQ problem with UM-Bridge
+### 4.3 Solve the Predator-Prey UQ problem with UM-Bridge
 To solve the Predator-Prey UQ problem with UM-Bridge, run the Predator-Prey client from exercise **1.2** and connect your MC client from exercise **3.2**.
 
 
-## 4 Exercise four
+## 5 Advanced UQ methods
 In this exercise we explore variations of the Monte Carlo method.
 
-### 4.1 Quasi Monte Carlo
+### 5.1 Quasi Monte Carlo
 Get familiar with the [quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement the method as an UM-Bridge client.
 
-### 4.2 Markov Chain Monte Carlo
+### 5.2 Markov Chain Monte Carlo
 To solve inverse UQ problems take a look at the [Markov Chain Monte Carlo](UQ/MCMC.ipynb) (MCMC) method. 
 
-### 4.3 The benefit of UM-Bridge
+### 5.3 The benefit of UM-Bridge
 You might ask yourselves why we are implementing all these UQ methods as UM-Bridge clients instead of directly incorporating them into our models. What initially seems like an extra step actually provides a significant advantage: it allows you to implement your UQ code once and then apply it to any UM-Bridge model of your choice. This eliminates the need to repeatedly implement the same UQ method for different models.
 
 In the following exercises, you will be introduced to various models to which you can apply your UQ clients. If you have your own models, try implementing them as UM-Bridge servers and solving them with your newly created UM-Bridge clients.
@@ -100,30 +102,30 @@ In the following exercises, you will be introduced to various models to which yo
 Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
 
 
-## 5 Exercise five
+## 6 Advanced models
 In this fifth exercise we are looking at some more advanced models.
 
-### 5.1 Three Body Problem
+### 6.1 Three Body Problem
 This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circlar Restricted Three-Body Problem (CR3BP)](CR3BP/CR3BP_UQ.ipynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](CR3BP/CR3BP_MCMC.ipynb) which is a commonly acknowledge algorithm for MCMC.
 
-### 5.2 Steady State Heat Conduction Problems
+### 6.2 Steady State Heat Conduction Problems
 This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Heat_Conduction/heatconduction_MCMC.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
-### 5.3 A computaionally demanding model
+### 6.3 A computaionally demanding model
 
 
-## 6 Exercise six
+## 7 High performance computing
 In this exercise you will learn how to run your model on a High Performance Computer (HPC).
 Letting your model run on a HPC is beneficial whenever it is computationally demanding and has a long processing time. The HPC can execute your model faster by for example running it in parallel. 
 
-### 6.1 Register on the HPC
+### 7.1 Register on the HPC
 In this course we are using the [bwUniCluster2.0](https://wiki.bwhpc.de/e/BwUniCluster2.0).
 To access this HPC follow the instruction for the [registration](https://wiki.bwhpc.de/e/Registration/bwUniCluster).
 
-### 6.2 Set up UM-Bridge
+### 7.2 Set up UM-Bridge
 To set up UM-Bridge on the HPC log in to the HPC and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
 
-### 6.3 Run a model on the HPC
+### 7.3 Run a model on the HPC
 To run a model on the bwUniCluster2.0 it must be put into a container. The prefered container for the bwUniCluster2.0 is Docker but you can also use Singularity. You can follow the instructions below to run your model on the HPC UM-Bridge setup. 
 
 1. **UM-Bridge server as a Python script:** First you have to have to transfere your UM-Bridge server into a Python script (.py). In the script you can loos the first two lines of code:
