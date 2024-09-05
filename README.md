@@ -1,5 +1,7 @@
 # MathSEE Modeling-Week
 
+This work is licensed under [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
 ## Introduction 
 In fields such as physics, economics, and statistics, complex models are constructed to replicate real-world phenomena. They are essential tools in these fields because they allow us to explore, understand and predict complex phenomena in ways that would be impossible, impractical, or too costly to do through direct experimentation alone. During this process, various types of uncertainties inevitably arise. A model is always an abstraction of reality and cannot incorporate every detail. This abstraction is crucial for focusing on significant aspects while ignoring less important details, making the complexity of reality more manageable and computable. However, this simplification introduces uncertainties.
 
