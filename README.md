@@ -30,8 +30,13 @@ In exercise three we are going to look at the Predator-Prey Model as a UQ proble
 ## 2 UM-Bridge
 **The purpose of UM-Bridge:** UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concerns stay seperated. (For further information read the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html)).
 
+### 2.1 A simple model
+Now you can test your MC client on a simple model. Implement a UM-Bridge server that solves the following function:
 
-### 2.1 Integrate UM-Bridge with Predator-Prey Model
+$f(x) = sin(2\pi x)$
+
+Compare your implementation to the [example solution](UQ/MC_1.2.ipynb), to make sure your setup is correct.
+### 2.2 Integrate UM-Bridge with Predator-Prey Model
 Now that you are familiar with the Predator-Prey Dynamical System, you can write the model as a UM-Bridge server.
 Use the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html) to get to know UM-Bridge and then look at the implementation [here](UQ/predprey_server.ipynb).
 
@@ -41,13 +46,6 @@ When implementing your UM-Bridge server in a jupyter notebook it is necessary to
 import nest_asyncio
 nest_asyncio.apply()
 ```
-
-### 2.2 A simple model
-Now you can test your MC client on a simple model. Implement a UM-Bridge server that solves the following function:
-
-$f(x) = sin(2\pi x)$
-
-Compare your implementation to the [example solution](UQ/MC_1.2.ipynb), to make sure your setup is correct.
 
 
 ## 3 Basic UQ methods
