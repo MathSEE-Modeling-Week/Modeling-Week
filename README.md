@@ -37,7 +37,7 @@ Now you can test your MC client on a simple model. Implement a UM-Bridge server 
 
 $f(x) = sin(2\pi x)$
 
-Compare your implementation to the [example solution](UQ/MC_1.2.ipynb), to make sure your setup is correct.
+Compare your implementation to the [example solution](UQ/MC_server.ipynb), to make sure your setup is correct.
 ### 2.2 Integrate UM-Bridge with Predator-Prey Model
 Now that you are familiar with the Predator-Prey Dynamical System, you can write the model as a UM-Bridge server.
 Use the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html) to get to know UM-Bridge and then look at the implementation [here](UQ/predprey_server.ipynb).
@@ -54,13 +54,13 @@ nest_asyncio.apply()
 In order to solve a Uncertainty Quantification problem a variey of methods can be used. In this exercise we are starting simple by getting to know the Monte Carlo method.
 
 ### 3.1 Monte Carlo
-Get familiar with the [Monte Carlo](UQ/MC_1.1.ipynb) (MC) method. 
+Get familiar with the [Monte Carlo](UQ/MC.ipynb) (MC) method. 
 In the example we sample from the following distribution:
 
 $X\sim \mathcal{N}(0.5, 0.01)$.
 
 ### 3.2 Monte Carlo as an UM-Bridge client
-Implement the MC method as an UM-Bridge client. [Here](UQ/MC_1.3.ipynb) you can find an example client.
+Implement the MC method as an UM-Bridge client. [Here](UQ/MC_client.ipynb) you can find an example client.
 
 ### 3.3 Solve an integral using UM-Bridge
 The last step of this first exercise is to combine the UM-Bridge server and the UM-Bridge client to solve the following integral:
