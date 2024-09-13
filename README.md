@@ -22,12 +22,12 @@ The example solutions are all written in Python so we strongly suggest using Pyt
 
 
 ## 1 Basic modeling
-In the first exercise we are looking at the Predator-Prey Model.
+In this first exercise, we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey.
 
 ### 1.1 Predator-Prey Model
-Get familiar with the [Predator-Prey Dynamical System](UQ/predprey.ipynb).
+Refer to the first notebook: [Predator-Prey Dynamical System](UQ/predprey.ipynb). This contains a description of the model, along with exercises to help you study and understand the system.
 
-In exercise three we are going to look at the Predator-Prey Model as a UQ problem.
+In the third exercise, we will examine the Predator-Prey Model as a UQ problem.
 
 ## 2 UM-Bridge
 **The purpose of UM-Bridge:** UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concerns stay seperated. (For further information read the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html)).
