@@ -134,6 +134,8 @@ To run a model on the bwUniCluster2.0 it must be put into a container. The prefe
    nest_asyncio.apply()
    ```
    those are only necessary in notebooks.
+
+   On the botom line of your server you need to specify the port as follows: ```umbridge.serve_models([model], int(os.environ.get("PORT", 4242)))```.
 3. **Install Docker:** Go to [Docker.com](https://www.docker.com/) and install Docker on your local machine.
 4. **Sign up to Docker Hub:** Go to [Docker Hub](https://hub.docker.com/) and create an account.
 5. **Write a Dockerfile:** To create a Docker container you need to write a Dockerfile and place it into the folder next to your Python script.
