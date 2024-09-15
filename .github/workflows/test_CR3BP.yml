@@ -1,0 +1,32 @@
+name: CR3BP_UQ Notebook Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test_notebook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install Jupyter Notebook
+        run: |
+          pip install notebook nbval pytest numpy matplotlib scipy
+
+      - name: Run Notebook Test
+        run: |
+          cd Heat_Conduction/ && \
+          jupyter nbconvert --execute --to notebook --inplace CR3BP_UQ.ipynb
+          echo "CR3BP successful"
