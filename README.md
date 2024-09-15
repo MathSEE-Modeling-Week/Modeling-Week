@@ -119,8 +119,7 @@ In this exercise you will learn how to run your model on a High Performance Comp
 Letting your model run on a HPC is beneficial whenever it is computationally demanding and has a long processing time. The HPC can execute your model faster by for example running it in parallel. 
 
 ### 7.1 Register on the HPC
-In this course we are using the [bwUniCluster2.0](https://wiki.bwhpc.de/e/BwUniCluster2.0).
-To access this HPC follow the instruction for the [registration](https://wiki.bwhpc.de/e/Registration/bwUniCluster).
+Register and Login to the HPC sytem of your choice.
 
 ### 7.2 Set up UM-Bridge
 To set up UM-Bridge on the HPC log in to the HPC and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
