@@ -27,6 +27,6 @@ jobs:
 
       - name: Run Notebook Test
         run: |
-          cd Heat_Conduction/ && \
+          cd CR3BP/ && \
           jupyter nbconvert --execute --to notebook --inplace CR3BP_UQ.ipynb
           echo "CR3BP successful"
