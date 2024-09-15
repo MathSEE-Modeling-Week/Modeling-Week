@@ -32,5 +32,5 @@ jobs:
           echo "MC successful"
           #jupyter nbconvert --execute --to notebook --inplace QMC.ipynb
           #echo "QMC successful"
-          jupyter nbconvert --execute --to notebook --inplace MCMC.ipynb
-          echo "MCMC successful"
+          #jupyter nbconvert --execute --to notebook --inplace MCMC.ipynb
+          #echo "MCMC successful"
