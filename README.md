@@ -112,7 +112,9 @@ This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you 
 This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Heat_Conduction/heatconduction_MCMC.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
 ### 6.3 A computaionally demanding model
+All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](UQ/L2-benchmark_model.ipynb) from the UM-Bridge benchmark.
 
+To test the L2-Sea modle have a look at the [client](UQ/L2-benchmark_client.ipynb).
 
 ## 7 High performance computing
 In this exercise you will learn how to run your model on a High Performance Computer (HPC).
