@@ -1,4 +1,9 @@
 ## 1 Run a UM-Bridge model on the bwUniCluster2.0
+In this course we are using the [bwUniCluster2.0](https://wiki.bwhpc.de/e/BwUniCluster2.0).
+To access this HPC follow the instruction for the [registration](https://wiki.bwhpc.de/e/Registration/bwUniCluster).
+
+To set up UM-Bridge on the HPC log in to the HPC and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
+
 To run a model on the bwUniCluster2.0 it must be put into a container. You can follow the instructions below to run your model on the HPC UM-Bridge setup. 
 
 1. **UM-Bridge server as a Python script:** First you have to have to transfere your UM-Bridge server into a Python script (.py). In the script you can loos the first two lines of code:
