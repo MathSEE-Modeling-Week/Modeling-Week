@@ -1,4 +1,4 @@
-name: Test heat conduction Client
+name: Test CR3BP Client
 
 on: [push, pull_request]
 
