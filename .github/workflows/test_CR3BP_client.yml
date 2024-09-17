@@ -29,11 +29,11 @@ jobs:
         
         # Convert notebook to script
         cd CR3BP
-        jupyter nbconvert --to script CR3BP_Server.ipynb
+        jupyter nbconvert --to script CR3BP_server.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        python CR3BP_Server.py > /dev/null &
+        python CR3BP_server.py > /dev/null &
         notebook_pid=$!
         echo "Notebook script PID: $notebook_pid"
             
@@ -44,16 +44,16 @@ jobs:
         echo "Model server responded"
 
         # Convert client to script
-        jupyter nbconvert --execute --to notebook --inplace CR3BP_MCMC.ipynb
+        jupyter nbconvert --execute --to notebook --inplace CR3BP_client.ipynb
         script_exit_code=$?
         echo "Script exit code: $script_exit_code"
 
         echo ""
 
         if [ $script_exit_code -eq 0 ]; then
-          echo "MC clinet completed successfully."
+          echo "CR3BP clinet completed successfully."
         else
-          echo "Error: MC client failed with exit code $script_exit_code."
+          echo "Error: CR3BP clinet failed with exit code $script_exit_code."
         fi
 
         # Terminate the notebook process
