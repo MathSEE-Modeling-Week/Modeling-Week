@@ -30,6 +30,8 @@ Refer to the first notebook: [Predator-Prey Dynamical System](UQ/predprey.ipynb)
 In the third exercise, we will examine the Predator-Prey Model as a UQ problem.
 
 ## 2 UM-Bridge
+In this section, we will get to know the UM-Bridge interface.
+
 **The purpose of UM-Bridge:** UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concerns stay seperated. (For further information read the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html)).
 
 ### 2.1 A simple model
