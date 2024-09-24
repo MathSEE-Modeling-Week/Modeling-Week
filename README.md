@@ -20,7 +20,6 @@ The exercises include mathematically modeled problems like the Heat Conduction M
 When moving forward with the exercises we will introduce UM-Bridge. You can check out the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html) and follow the Quickstart Guide and/or the Tutorial to get familiar with UM-Bridge.
 The example solutions are all written in Python so we strongly suggest using Python as well, if you prefer another language make sure it is supported by UM-Bridge [here](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
 
-
 ## 1 Basic Modeling
 In this first exercise, we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey. We use this as a reference because it is a real-world example that, while not too complex, effectively demonstrates the interactions between different species.
 
@@ -83,17 +82,18 @@ $\int_{0}^{1} f(x) \\textit{d}x$, where $f(x) = sin(2\pi x)$.
 Note: If you are running your server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
 
 ## 4 UQ Application
-In this exercise we are looking at the Predator-Prey Model as a UQ problem and solve it with the MC method
+In this exercise we are looking at the Predator-Prey Model from section 1 as a UQ problem and solve it using the MC method.
 
 ### 4.1 Predator-Prey Model as a UQ problem
-Look at the following [notebook](UQ/predprey_UQ.ipynb) and get familiar with the problem.
+For details on the UQ problem, refer to the following [notebook](UQ/predprey_UQ.ipynb). In this case, we consider a forward UQ problem where there are perturbations in the initial conditions for both predator and prey populations. The notebook also includes a Monte Carlo simulation, though it does not utilize the UM-Bridge framework.
 
 ### 4.2 MC Client for Predator-Prey Model
-Take a look at the [MC client](UQ/predprey_client.ipynb) for the Predator-Prey Model.
+Implement the MC simulation for the Predator-Prey Model as a UM-Bridge client. For a sample solution, refer to the  [MC client](UQ/predprey_client.ipynb) for the Predator-Prey Model.
 
-### 4.3 Solve the Predator-Prey UQ problem with UM-Bridge
-To solve the Predator-Prey UQ problem with UM-Bridge, run the Predator-Prey client from exercise **1.2** and connect your MC client from exercise **3.2**.
+To solve the UQ problem for the Predator-Prey model with UM-Bridge, follow these steps:
 
+1. Run the [Predator-Prey model](UQ/predprey_server.ipynb) from exercise 2.2 to set up the server.
+2. Connect your MC client to the server and perform the simulation to evaluate the effect of uncertainty in the initial conditions.
 
 ## 5 Advanced UQ Methods
 In this exercise we explore variations of the Monte Carlo method.
