@@ -76,9 +76,8 @@ The final step of this exercise involves using the UM-Bridge framework to solve 
 
 $\int_{0}^{1} f(x) \\textit{d}x$, where $f(x) = sin(2\pi x)$.
 
-#### Follow these steps to complete the task:
 1. Run the [UM-Bridge server](UQ/MC_server.ipynb) as defined in section **2.1** to set up the model.
-2. Connect the MC client to the server and evaluate the function $f(x)$ at random points $X_i \sim \mathcal{U}([0, 1])$.
+2. Connect the [MC client](UQ/MC_client.ipynb) to the server and evaluate the function $f(x)$ at random points $X_i \sim \mathcal{U}([0, 1])$.
 3. Look at the result of the MC estimator and vary the sample size $N$ to see how it affects the accuracy of the estimate.
 
 Note: If you are running your server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
