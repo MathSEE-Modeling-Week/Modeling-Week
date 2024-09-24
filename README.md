@@ -22,7 +22,7 @@ The example solutions are all written in Python so we strongly suggest using Pyt
 
 
 ## 1 Basic modeling
-In this first exercise, we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey.
+In this first exercise, we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey. We use this as a reference because it is a real-world example that, while not too complex, effectively demonstrates the interactions between different species.
 
 ### 1.1 Predator-Prey Model
 Refer to the first notebook: [Predator-Prey Dynamical System](UQ/predprey.ipynb). This contains a description of the model, along with exercises to help you study and understand the system.
