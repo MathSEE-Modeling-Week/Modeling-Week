@@ -59,26 +59,31 @@ The server is now running and ready to handle requests from a client. Since the 
 
 ## 3 Basic UQ Methods
 
-To solve an Uncertainty Quantification (UQ) problem, a variety of methods can be used. In this exercise, we are starting simple by getting to know the Monte Carlo (MC) method.
+To solve an Uncertainty Quantification (UQ) problem, a variety of methods can be used. In this section, we are starting simple by getting to know the Monte Carlo (MC) method.
 
 ### 3.1 Monte Carlo
-Get familiar with the [Monte Carlo](UQ/MC.ipynb) (MC) method. 
-In the example we sample from the following distribution:
+Get familiar with the [Monte Carlo](UQ/MC.ipynb) (MC) method. In the example, we sample from the following distribution:
 
 $X\sim \mathcal{N}(0.5, 0.01)$.
 
+In the notebook, you can find a few tasks, such as varying the sample size or changing the distribution. This will help you to explore how different parameters influence the results and how the Monte Carlo method works in practice.
+
 ### 3.2 Monte Carlo as an UM-Bridge Client
-Implement the MC method as an UM-Bridge client. [Here](UQ/MC_client.ipynb) you can find an example client.
+Next, you will implement the MC method as an UM-Bridge client. [Here](UQ/MC_client.ipynb) you can find an example MC client template.
 
-### 3.3 Solve an Integral using UM-Bridge
-The last step of this first exercise is to combine the UM-Bridge server and the UM-Bridge client to solve the following integral:
+#### Solve an Integral using UM-Bridge
+The final step of this exercise involves using the UM-Bridge framework to solve the following integral:
 
-$\int_{0}^{1} f(x) \\textit{d}x$.
+$\int_{0}^{1} f(x) \\textit{d}x$,
 
-First, run the server from **2.2**. Then connect the MC client to the server. Look at the result and vary the sample size until you get a satisfactory result. 
+where $f(x) = sin(2\pi x)$.
+
+#### Follow these steps to complete the task:
+1. Run the [UM-Bridge server](UQ/MC_server.ipynb) as defined in section **2.1** to set up the model.
+2. Connect the MC client to the server and evaluate the function $f(x)$ at random points $X_i \sim \mathcal{U}([0, 1])$.
+3. Look at the result of the MC estimator and vary the sample size $N$ to see how it affects the accuracy of the estimate.
 
 Note: If you are running your server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
-
 
 ## 4 UQ Application
 In this exercise we are looking at the Predator-Prey Model as a UQ problem and solve it with the MC method
