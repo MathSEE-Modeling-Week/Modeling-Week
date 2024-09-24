@@ -74,9 +74,7 @@ Next, you will implement the MC method as an UM-Bridge client. [Here](UQ/MC_clie
 #### Solve an Integral using UM-Bridge
 The final step of this exercise involves using the UM-Bridge framework to solve the following integral:
 
-$\int_{0}^{1} f(x) \\textit{d}x$,
-
-where $f(x) = sin(2\pi x)$.
+$\int_{0}^{1} f(x) \\textit{d}x$, where $f(x) = sin(2\pi x)$.
 
 #### Follow these steps to complete the task:
 1. Run the [UM-Bridge server](UQ/MC_server.ipynb) as defined in section **2.1** to set up the model.
