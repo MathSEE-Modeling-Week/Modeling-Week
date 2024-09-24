@@ -34,14 +34,14 @@ In this section, we will get to know the UM-Bridge interface.
 
 **The purpose of UM-Bridge:** UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concerns stay seperated. (For further information read the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html)).
 
-### 2.1 A simple model
+### 2.1 A Simple Model
 To get familiar with UM-Bridge, let's start by implementing a simple server for the following function:
 
 $f(x) = sin(2\pi x)$.
 
 This model will serve as a basic example to demonstrate how UM-Bridge works. The function takes an input $x$ and returns the function value $sin(2 \pi x)$.
 
-When implementing your UM-Bridge server in a jupyter notebook it is necessary to add the following two lines at the very top of the cell:
+When implementing your UM-Bridge server in a Jupyter notebook, it is necessary to add the following two lines at the very top of the cell:
 
 ```
 import nest_asyncio
@@ -56,7 +56,7 @@ Once you're comfortable with the simple example from 2.1, the next step is to im
 You can reference the sample implementation of the Predator-Prey Model server [here](UQ/predprey_server.ipynb) for guidance. For further details on UM-Bridge, revisit the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
 
 ## 3 Basic UQ methods
-In order to solve a Uncertainty Quantification problem a variey of methods can be used. In this exercise we are starting simple by getting to know the Monte Carlo method.
+To solve an Uncertainty Quantification (UQ) problem, a variety of methods can be used. In this exercise, we are starting simple by getting to know the Monte Carlo (MC) method.
 
 ### 3.1 Monte Carlo
 Get familiar with the [Monte Carlo](UQ/MC.ipynb) (MC) method. 
