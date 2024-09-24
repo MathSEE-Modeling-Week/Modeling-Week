@@ -50,12 +50,12 @@ nest_asyncio.apply()
 
 This ensures compatibility with the notebook environment. Compare your implementation to the [example solution](UQ/MC_server.ipynb), to make sure your setup is correct.
 
-### 2.2 Predator-Prey Model as UM-Bridge server
+### 2.2 Predator-Prey Model as UM-Bridge Server
 Once you're comfortable with the simple example from 2.1, the next step is to implement the Predator-Prey model (introduced in 1.1) as an UM-Bridge server. The Predator-Prey model is more complex and will help you see how UM-Bridge can manage multi-dimensional models.
 
 You can reference the sample implementation of the Predator-Prey Model server [here](UQ/predprey_server.ipynb) for guidance. For further details on UM-Bridge, revisit the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
 
-## 3 Basic UQ methods
+## 3 Basic UQ Methods
 To solve an Uncertainty Quantification (UQ) problem, a variety of methods can be used. In this exercise, we are starting simple by getting to know the Monte Carlo (MC) method.
 
 ### 3.1 Monte Carlo
@@ -64,10 +64,10 @@ In the example we sample from the following distribution:
 
 $X\sim \mathcal{N}(0.5, 0.01)$.
 
-### 3.2 Monte Carlo as an UM-Bridge client
+### 3.2 Monte Carlo as an UM-Bridge Client
 Implement the MC method as an UM-Bridge client. [Here](UQ/MC_client.ipynb) you can find an example client.
 
-### 3.3 Solve an integral using UM-Bridge
+### 3.3 Solve an Integral using UM-Bridge
 The last step of this first exercise is to combine the UM-Bridge server and the UM-Bridge client to solve the following integral:
 
 $\int_{0}^{1} f(x) \\textit{d}x$.
@@ -77,20 +77,20 @@ First, run the server from **2.2**. Then connect the MC client to the server. Lo
 Note: If you are running your server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
 
 
-## 4 UQ application
+## 4 UQ Application
 In this exercise we are looking at the Predator-Prey Model as a UQ problem and solve it with the MC method
 
 ### 4.1 Predator-Prey Model as a UQ problem
 Look at the following [notebook](UQ/predprey_UQ.ipynb) and get familiar with the problem.
 
-### 4.2 MC client for Predator-Prey Model
+### 4.2 MC Client for Predator-Prey Model
 Take a look at the [MC client](UQ/predprey_client.ipynb) for the Predator-Prey Model.
 
 ### 4.3 Solve the Predator-Prey UQ problem with UM-Bridge
 To solve the Predator-Prey UQ problem with UM-Bridge, run the Predator-Prey client from exercise **1.2** and connect your MC client from exercise **3.2**.
 
 
-## 5 Advanced UQ methods
+## 5 Advanced UQ Methods
 In this exercise we explore variations of the Monte Carlo method.
 
 ### 5.1 Quasi Monte Carlo
@@ -99,7 +99,7 @@ Get familiar with the [quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and impleme
 ### 5.2 Markov Chain Monte Carlo
 To solve inverse UQ problems take a look at the [Markov Chain Monte Carlo](UQ/MCMC.ipynb) (MCMC) method. 
 
-### 5.3 The benefit of UM-Bridge
+### 5.3 The Benefit of UM-Bridge
 You might ask yourselves why we are implementing all these UQ methods as UM-Bridge clients instead of directly incorporating them into our models. What initially seems like an extra step actually provides a significant advantage: it allows you to implement your UQ code once and then apply it to any UM-Bridge model of your choice. This eliminates the need to repeatedly implement the same UQ method for different models.
 
 In the following exercises, you will be introduced to various models to which you can apply your UQ clients. If you have your own models, try implementing them as UM-Bridge servers and solving them with your newly created UM-Bridge clients.
@@ -107,7 +107,7 @@ In the following exercises, you will be introduced to various models to which yo
 Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
 
 
-## 6 Advanced models
+## 6 Advanced Models
 In this fifth exercise we are looking at some more advanced models.
 
 ### 6.1 Three Body Problem
@@ -116,12 +116,12 @@ This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you 
 ### 6.2 Steady State Heat Conduction Problems
 This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Heat_Conduction/heatconduction_MCMC.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
-### 6.3 A computaionally demanding model
+### 6.3 A computaionally demanding Model
 All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](UQ/L2-benchmark_model.ipynb) from the UM-Bridge benchmark.
 
 To test the L2-Sea modle have a look at the [client](UQ/L2-benchmark_client.ipynb).
 
-## 7 High performance computing
+## 7 High Performance Computing
 In this exercise you will learn how to run your model on a High Performance Computer (HPC).
 Letting your model run on a HPC is beneficial whenever it is computationally demanding and has a long processing time. The HPC can execute your model faster by for example running it in parallel. 
 
@@ -131,7 +131,7 @@ Register and Login to the HPC sytem of your choice.
 ### 7.2 Set up UM-Bridge
 To set up UM-Bridge on the HPC log in to the HPC and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
 
-### 7.3 Run a model on the HPC
+### 7.3 Run a Model on the HPC
 Go [here](UM-Bridge_on_bwUniCluster2.0.md) to get a detailed instructon on how to run a UM-Bridge server on the bwUniCluster2.0. If you are working with a different HPC system go to its documentary for more information.
 
 
