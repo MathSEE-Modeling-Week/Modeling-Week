@@ -21,7 +21,7 @@ When moving forward with the exercises we will introduce UM-Bridge. You can chec
 The example solutions are all written in Python so we strongly suggest using Python as well, if you prefer another language make sure it is supported by UM-Bridge [here](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
 
 
-## 1 Basic modeling
+## 1 Basic Modeling
 In this first exercise, we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey. We use this as a reference because it is a real-world example that, while not too complex, effectively demonstrates the interactions between different species.
 
 ### 1.1 Predator-Prey Model
