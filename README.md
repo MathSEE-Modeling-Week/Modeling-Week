@@ -21,15 +21,15 @@ When moving forward with the exercises we will introduce UM-Bridge. You can chec
 The example solutions are all written in Python so we strongly suggest using Python as well, if you prefer another language make sure it is supported by UM-Bridge [here](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
 
 ## 1 Basic Modeling
-In this first exercise, we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey. We use this as a reference because it is a real-world example that, while not too complex, effectively demonstrates the interactions between different species.
+In this first exercise we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey. We use this as a reference because it is a real-world example that, while not too complex, effectively demonstrates the interactions between different species.
 
 ### 1.1 Predator-Prey Model
 Refer to the first notebook: [Predator-Prey Dynamical System](UQ/predprey.ipynb). This contains a description of the model, along with exercises to help you study and understand the system.
 
-In the third exercise, we will examine the Predator-Prey Model as a UQ problem.
+In the third exercise we will examine the Predator-Prey Model as a UQ problem.
 
 ## 2 UM-Bridge
-In this section, we will get to know the UM-Bridge interface.
+In this section we will get to know the UM-Bridge interface.
 
 **The purpose of UM-Bridge:** UM-Bridge serves as an interface that enables communication between advanced computational models written in various programming languages. UM-Bridge views these models as functions mapping input vectors onto output vectors. The models are designed as servers that can connect to clients through HTTP. Server and client only exchange input and output data without any further information about each other’s implementation specifics. This way concerns stay seperated. (For further information read the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html)).
 
@@ -96,24 +96,27 @@ To solve the UQ problem for the Predator-Prey model with UM-Bridge, follow these
 2. Connect your MC client to the server and perform the simulation to evaluate the effect of uncertainty in the initial conditions.
 
 ## 5 Advanced UQ Methods
-In this exercise, we explore variations of the Monte Carlo method by introducing the Quasi Monte Carlo (QMC) and Markov Chain Monte Carlo (MCMC) methods. These methods are built on concepts from the previous section and offer different approaches to improving convergence and solving specific types of problems.
+In this exercise we explore variations of the Monte Carlo method by introducing the Quasi Monte Carlo (QMC) and Markov Chain Monte Carlo (MCMC) methods. These methods are built on concepts from the previous section and offer different approaches to improving convergence and solving specific types of problems.
 
 ### 5.1 Quasi Monte Carlo
 The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for more uniform sampling. Get familiar with the [Quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement it as an UM-Bridge client. You can find a sample solution [here](UQ/QMC_client.ipynb).
 
 ### 5.2 Markov Chain Monte Carlo
-To solve inverse UQ problems take a look at the [Markov Chain Monte Carlo](UQ/MCMC.ipynb) (MCMC) method. 
+In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using a UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems.
 
-### 5.3 The Benefit of UM-Bridge
+---
+
+### The Benefit of UM-Bridge
 You might ask yourselves why we are implementing all these UQ methods as UM-Bridge clients instead of directly incorporating them into our models. What initially seems like an extra step actually provides a significant advantage: it allows you to implement your UQ code once and then apply it to any UM-Bridge model of your choice. This eliminates the need to repeatedly implement the same UQ method for different models.
 
 In the following exercises, you will be introduced to various models to which you can apply your UQ clients. If you have your own models, try implementing them as UM-Bridge servers and solving them with your newly created UM-Bridge clients.
 
 Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
 
+---
 
 ## 6 Advanced Models
-In this fifth exercise we are looking at some more advanced models.
+In this sixth exercise we are looking at some more advanced models.
 
 ### 6.1 Three Body Problem
 This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circular Restricted Three-Body Problem (CR3BP)](CR3BP/CR3BP_UQ.ipynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](CR3BP/CR3BP_MCMC.ipynb) which is a commonly acknowledge algorithm for MCMC.
