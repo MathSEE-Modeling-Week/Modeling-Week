@@ -96,10 +96,10 @@ To solve the UQ problem for the Predator-Prey model with UM-Bridge, follow these
 2. Connect your MC client to the server and perform the simulation to evaluate the effect of uncertainty in the initial conditions.
 
 ## 5 Advanced UQ Methods
-In this exercise we explore variations of the Monte Carlo method.
+In this exercise, we explore variations of the Monte Carlo method by introducing the Quasi Monte Carlo (QMC) and Markov Chain Monte Carlo (MCMC) methods. These methods are built on concepts from the previous section and offer different approaches to improving convergence and solving specific types of problems.
 
 ### 5.1 Quasi Monte Carlo
-Get familiar with the [quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement the method as an UM-Bridge client.
+The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for more uniform sampling. Get familiar with the [Quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement it as an UM-Bridge client. You can find a sample solution [here](UQ/QMC_client.ipynb).
 
 ### 5.2 Markov Chain Monte Carlo
 To solve inverse UQ problems take a look at the [Markov Chain Monte Carlo](UQ/MCMC.ipynb) (MCMC) method. 
