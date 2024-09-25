@@ -95,15 +95,6 @@ To solve the UQ problem for the Predator-Prey model with UM-Bridge, follow these
 1. Run the [Predator-Prey model](UQ/predprey_server.ipynb) from exercise 2.2 to set up the server.
 2. Connect your MC client to the server and perform the simulation to evaluate the effect of uncertainty in the initial conditions.
 
-## 5 Advanced UQ Methods
-In this exercise we explore variations of the Monte Carlo method by introducing the Quasi Monte Carlo (QMC) and Markov Chain Monte Carlo (MCMC) methods. These methods are built on concepts from the previous section and offer different approaches to improving convergence and solving specific types of problems.
-
-### 5.1 Quasi Monte Carlo
-The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for more uniform sampling. Get familiar with the [Quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement it as an UM-Bridge client. You can find a sample solution [here](UQ/QMC_client.ipynb).
-
-### 5.2 Markov Chain Monte Carlo
-In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/MCMC_posterior_server.ipynb) and for the client [here](UQ/MCMC_client.ipynb).
-
 ---
 
 ### The Benefit of UM-Bridge
@@ -114,6 +105,21 @@ In the following exercises, you will be introduced to various models where you c
 Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
 
 ---
+
+## Next Steps: Exploring Models and UQ Methods
+So far, you've been introduced to various simple models, UQ methods, and the UM-Bridge interface, gaining a foundational understanding of how these components work together. From this point on, you can choose to dive deeper into either advanced UQ methods (Section 5) or more complex models (Section 6).
+
+We encourage you to form teams and work on projects, focusing on one of these areas. Modeling teams formulate a UQ problem, determining whether it is a forward or inverse problem. UQ teams study a UQ method. Ultimately, it would be ideal if modeling teams and UQ teams colloborate together.
+
+---
+## 5 Advanced UQ Methods
+In this exercise we explore variations of the Monte Carlo method by introducing the Quasi Monte Carlo (QMC) and Markov Chain Monte Carlo (MCMC) methods. These methods are built on concepts from the previous section and offer different approaches to improving convergence and solving specific types of problems.
+
+### 5.1 Quasi Monte Carlo
+The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for more uniform sampling. Get familiar with the [Quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement it as an UM-Bridge client. You can find a sample solution [here](UQ/QMC_client.ipynb).
+
+### 5.2 Markov Chain Monte Carlo
+In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/MCMC_posterior_server.ipynb) and for the client [here](UQ/MCMC_client.ipynb).
 
 ## 6 Advanced Models
 In this section we are looking at some more advanced models.
