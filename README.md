@@ -102,21 +102,21 @@ In this exercise we explore variations of the Monte Carlo method by introducing 
 The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for more uniform sampling. Get familiar with the [Quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement it as an UM-Bridge client. You can find a sample solution [here](UQ/QMC_client.ipynb).
 
 ### 5.2 Markov Chain Monte Carlo
-In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using a UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems.
+In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/MCMC_posterior_server.ipynb) and for the client [here](UQ/MCMC_client.ipynb).
 
 ---
 
 ### The Benefit of UM-Bridge
 You might ask yourselves why we are implementing all these UQ methods as UM-Bridge clients instead of directly incorporating them into our models. What initially seems like an extra step actually provides a significant advantage: it allows you to implement your UQ code once and then apply it to any UM-Bridge model of your choice. This eliminates the need to repeatedly implement the same UQ method for different models.
 
-In the following exercises, you will be introduced to various models to which you can apply your UQ clients. If you have your own models, try implementing them as UM-Bridge servers and solving them with your newly created UM-Bridge clients.
+In the following exercises, you will be introduced to various models where you can apply your UQ clients. If you have your own models, try implementing them as UM-Bridge servers and solving them with your newly created UM-Bridge clients.
 
 Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
 
 ---
 
 ## 6 Advanced Models
-In this sixth exercise we are looking at some more advanced models.
+In this section we are looking at some more advanced models.
 
 ### 6.1 Three Body Problem
 This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circular Restricted Three-Body Problem (CR3BP)](CR3BP/CR3BP_UQ.ipynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](CR3BP/CR3BP_MCMC.ipynb) which is a commonly acknowledge algorithm for MCMC.
@@ -125,13 +125,11 @@ This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you 
 This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Heat_Conduction/heatconduction_MCMC.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
 ### 6.3 A computaionally demanding Model
-All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](UQ/L2-benchmark_model.ipynb) from the UM-Bridge benchmark.
-
-To test the L2-Sea modle have a look at the [client](UQ/L2-benchmark_client.ipynb).
+All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](UQ/L2-benchmark_model.ipynb) from the UM-Bridge benchmark. To test the L2-Sea model have a look at the [client](UQ/L2-benchmark_client.ipynb).
 
 ## 7 High Performance Computing
 In this exercise you will learn how to run your model on a High Performance Computer (HPC).
-Letting your model run on a HPC is beneficial whenever it is computationally demanding and has a long processing time. The HPC can execute your model faster by for example running it in parallel. 
+Letting your model run on a HPC is beneficial whenever it is computationally demanding and has a long processing time. The HPC can execute your model faster by for example running it in parallel.
 
 ### 7.1 Register on the HPC
 Register and Login to the HPC sytem of your choice.
