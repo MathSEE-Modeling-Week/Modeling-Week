@@ -47,7 +47,9 @@ import nest_asyncio
 nest_asyncio.apply()
 ```
 
-This ensures compatibility with the notebook environment. Compare your implementation to the [example solution](UQ/MC_server.ipynb), to make sure your setup is correct.
+This ensures compatibility with the notebook environment. Go to the [Model section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/models.html) of the UM-Bridge Documentation to learn about the correct implementation of a UM-Bridge server. 
+
+Compare your implementation to the [example solution](UQ/MC_server.ipynb), to make sure your setup is correct.
 
 ### 2.2 Predator-Prey Model as UM-Bridge Server
 Once you're comfortable with the simple example from 2.1, the next step is to implement the Predator-Prey model (introduced in 1.1) as an UM-Bridge server. The Predator-Prey model is more complex and will help you see how UM-Bridge can manage multi-dimensional models.
