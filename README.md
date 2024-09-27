@@ -140,7 +140,7 @@ All the previouse models we have looked at so far can be fastly computed. This i
 
 ## 7 High Performance Computing
 In this exercise you will learn how to run your model on a High Performance Computer (HPC).
-Letting your model run on a HPC is beneficial whenever it is computationally demanding and has a long processing time. The HPC can execute your model faster by for example running it in parallel.
+Letting your model run on a HPC is beneficial whenever it is computationally demanding and has a long processing time. The HPC can execute your model faster by for example running it in parallel, also it will save your personal computer from having to put all its computational power into computing the model.
 
 ### 7.1 Register on the HPC
 Register and Login to the HPC sytem of your choice.
