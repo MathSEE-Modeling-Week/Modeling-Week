@@ -67,7 +67,7 @@ To solve an Uncertainty Quantification (UQ) problem, a variety of methods can be
 ### 3.1 Monte Carlo
 Get familiar with the [Monte Carlo](UQ/MC.ipynb) (MC) method. In the example, we sample from the following distribution:
 
-$X\sim \mathcal{N}(0.5, 0.01)$.
+$X\sim \mathcal{N}(0.5, 0.1)$.
 
 In the notebook, you can find a few tasks, such as varying the sample size or changing the distribution. This will help you to explore how different parameters influence the results and how the Monte Carlo method works in practice.
 
