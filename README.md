@@ -115,6 +115,9 @@ The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for
 ### 5.2 Markov Chain Monte Carlo
 In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/MCMC_posterior_server.ipynb) and for the client [here](UQ/MCMC_client.ipynb).
 
+### 5.3. Mulitlevel Monte Carlo
+If you are interested in looking deeper in the Multilevel Monte Carlo method, you can check [this notebook](UQ/Exercise_MLMC.ipynb).
+
 ---
 
 ### The Benefit of UM-Bridge
