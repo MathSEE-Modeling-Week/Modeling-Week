@@ -47,7 +47,7 @@ import nest_asyncio
 nest_asyncio.apply()
 ```
 
-This ensures compatibility with the notebook environment. Go to the [Model section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/models.html) of the UM-Bridge Documentation to learn about the correct implementation of a UM-Bridge server. 
+This ensures compatibility with the notebook environment. Go to the [Model section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/models.html) of the UM-Bridge documentation to learn about the correct implementation of a UM-Bridge server. 
 
 Compare your implementation to the [example solution](UQ/MC_server.ipynb), to make sure your setup is correct.
 
@@ -57,6 +57,8 @@ Once you're comfortable with the simple example from 2.1, the next step is to im
 You can reference the sample implementation of the Predator-Prey Model server [here](UQ/predprey_server.ipynb) for guidance. For further details on UM-Bridge, revisit the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html).
 
 The server is now running and ready to handle requests from a client. Since the model itself has been implemented, we can proceed to make model evaluations. A client request corresponds to a function evaluation of the Lotka-Volterra system. To see how you can interact with the server and evaluate the model, refer to the [first client](/UQ/predprey_firstclient.ipynb). This notebook demonstrates how to connect to the Predator-Prey Model server and perform function evaluations by specifying the model parameters.
+
+For a more detailed explenation of UM-Bridge clients check out the [Client section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/clients.html) in the UM-Bridge documentation.
 
 ## 3 Basic UQ Methods
 
