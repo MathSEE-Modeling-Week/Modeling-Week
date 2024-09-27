@@ -99,16 +99,6 @@ To solve the UQ problem for the Predator-Prey model with UM-Bridge, follow these
 1. Run the [Predator-Prey model](UQ/predprey_server.ipynb) from exercise 2.2 to set up the server.
 2. Connect your MC client to the server and perform the simulation to evaluate the effect of uncertainty in the initial conditions.
 
----
-
-### The Benefit of UM-Bridge
-You might ask yourselves why we are implementing all these UQ methods as UM-Bridge clients instead of directly incorporating them into our models. What initially seems like an extra step actually provides a significant advantage: it allows you to implement your UQ code once and then apply it to any UM-Bridge model of your choice. This eliminates the need to repeatedly implement the same UQ method for different models.
-
-In the following exercises, you will be introduced to various models where you can apply your UQ clients. If you have your own models, try implementing them as UM-Bridge servers and solving them with your newly created UM-Bridge clients.
-
-Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
-
----
 
 ## Next Steps: Exploring Models and UQ Methods
 So far, you've been introduced to various simple models, UQ methods, and the UM-Bridge interface, gaining a foundational understanding of how these components work together. From this point on, you can choose to dive deeper into either advanced UQ methods (Section 5) or more complex models (Section 6).
@@ -124,6 +114,17 @@ The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for
 
 ### 5.2 Markov Chain Monte Carlo
 In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/MCMC_posterior_server.ipynb) and for the client [here](UQ/MCMC_client.ipynb).
+
+---
+
+### The Benefit of UM-Bridge
+You might ask yourselves why we are implementing all these UQ methods as UM-Bridge clients instead of directly incorporating them into our models. What initially seems like an extra step actually provides a significant advantage: it allows you to implement your UQ code once and then apply it to any UM-Bridge model of your choice. This eliminates the need to repeatedly implement the same UQ method for different models.
+
+In the following exercises, you will be introduced to various models where you can apply your UQ clients. If you have your own models, try implementing them as UM-Bridge servers and solving them with your newly created UM-Bridge clients.
+
+Note: Make sure that the input and output dimensions of your UM-Bridge clients and servers are compatible.
+
+---
 
 ## 6 Advanced Models
 In this section we are looking at some more advanced models.
