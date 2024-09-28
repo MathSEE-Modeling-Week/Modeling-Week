@@ -60,7 +60,7 @@ After starting the notebook, your server is running and ready to handle requests
 
 For a more detailed explenation of UM-Bridge clients check out the [Client section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/clients.html) in the UM-Bridge documentation.
 
-Note: If you are running your UM-Bridge server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
+**Note**: If you are running your UM-Bridge server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
 
 ## 3 Basic UQ Methods
 
