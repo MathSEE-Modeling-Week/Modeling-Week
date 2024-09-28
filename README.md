@@ -60,6 +60,8 @@ After starting the notebook, your server is running and ready to handle requests
 
 For a more detailed explenation of UM-Bridge clients check out the [Client section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/clients.html) in the UM-Bridge documentation.
 
+Note: If you are running your UM-Bridge server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
+
 ## 3 Basic UQ Methods
 
 To solve an Uncertainty Quantification (UQ) problem, a variety of methods can be used. In this section, we are starting simple by getting to know the Monte Carlo (MC) method.
@@ -82,8 +84,6 @@ $\int_{0}^{1} f(x) \\textit{d}x$, where $f(x) = sin(2\pi x)$.
 1. Run the [UM-Bridge server](UQ/MC_server.ipynb) as defined in section **2.1** to set up the model.
 2. Connect the [MC client](UQ/MC_client.ipynb) to the server and evaluate the function $f(x)$ at random points $X_i \sim \mathcal{U}([0, 1])$.
 3. Look at the result of the MC estimator and vary the sample size $N$ to see how it affects the accuracy of the estimate.
-
-Note: If you are running your server and client in a notebook you must put them in two different files to prevent the server from blocking the client's execution.
 
 ## 4 UQ Application
 In this exercise we are looking at the Predator-Prey Model from section 1 as a UQ problem and solve it using the MC method.
