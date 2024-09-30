@@ -151,7 +151,7 @@ Register and Login to the HPC sytem of your choice.
 To set up UM-Bridge on the HPC log and follow the instructions from the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/hpc.html) on HPCs.
 
 ### 7.3 Run a Model on the HPC
-Go [here](UM-Bridge_on_bwUniCluster2.0.md) to get a detailed instructon on how to run a UM-Bridge server on the bwUniCluster2.0. If you are working with a different HPC system go to its documentary for further information.
+Go [here](bwUniCluster20.md) to get a detailed instructon on how to run a UM-Bridge server on the bwUniCluster2.0. If you are working with a different HPC system go to its documentary for further information.
 
 
 
