@@ -28,7 +28,7 @@ jobs:
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
-        cd UQ
+        cd UQ/Monte_Carlo
         jupyter nbconvert --to script MC_server.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
