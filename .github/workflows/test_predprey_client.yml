@@ -28,7 +28,7 @@ jobs:
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
-        cd UQ
+        cd Models/Predator-Prey
         jupyter nbconvert --to script predprey_server.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
