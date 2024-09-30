@@ -27,9 +27,11 @@ jobs:
 
       - name: Run Notebook Test
         run: |
-          cd UQ/ && \
+          cd UQ/Monte_Carlo && \
           jupyter nbconvert --execute --to notebook --inplace MC.ipynb
           echo "MC successful"
+          cd ..
+          cd UQ/Quasi_Monte_Carlo && \
           jupyter nbconvert --execute --to notebook --inplace QMC.ipynb
           echo "QMC successful"
           #jupyter nbconvert --execute --to notebook --inplace MCMC.ipynb
