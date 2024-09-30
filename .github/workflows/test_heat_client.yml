@@ -28,7 +28,7 @@ jobs:
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
-        cd Heat_Conduction
+        cd Models/Heat_Conduction
         jupyter nbconvert --to script heatconduction_server.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
