@@ -31,7 +31,7 @@ jobs:
           jupyter nbconvert --execute --to notebook --inplace MC.ipynb
           echo "MC successful"
           cd ..
-          cd UQ/Quasi_Monte_Carlo && \
+          cd Quasi_Monte_Carlo && \
           jupyter nbconvert --execute --to notebook --inplace QMC.ipynb
           echo "QMC successful"
           #jupyter nbconvert --execute --to notebook --inplace MCMC.ipynb
