@@ -35,7 +35,8 @@ jobs:
           shopt -s globstar
 
           #for notebook in UQ/*server*.ipynb; do
-          for notebook in UQ/*[sS]erver*.ipynb Heat_Conduction/*[sS]erver*.ipynb; do
+          #for notebook in UQ/*[sS]erver*.ipynb Models/*[sS]erver*.ipynb; do
+          for notebook in $(find UQ/ Models/ -type f -iname '*server*.ipynb'); do
               echo "======================"
               echo "Running $notebook:"
               echo ""
