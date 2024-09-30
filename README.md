@@ -49,7 +49,7 @@ nest_asyncio.apply()
 
 This ensures compatibility with the notebook environment. Go to the [Model section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/models.html) of the UM-Bridge documentation to learn about the correct implementation of a UM-Bridge server. 
 
-Compare your implementation to the [example solution](UQ/MC_server.ipynb), to make sure your setup is correct.
+Compare your implementation to the [example solution](UQ/Monte_Carlo/MC_server.ipynb), to make sure your setup is correct.
 
 ### 2.2 Predator-Prey Model as UM-Bridge Server
 Once you're comfortable with the simple example from 2.1, the next step is to implement the Predator-Prey model (introduced in 1.1) as an UM-Bridge server. The Predator-Prey model is more complex and will help you see how UM-Bridge can manage multi-dimensional models.
@@ -67,22 +67,22 @@ For a more detailed explenation of UM-Bridge clients check out the [Client secti
 To solve an Uncertainty Quantification (UQ) problem, a variety of methods can be used. In this section, we are starting simple by getting to know the Monte Carlo (MC) method.
 
 ### 3.1 Monte Carlo
-Get familiar with the [Monte Carlo](UQ/MC.ipynb) (MC) method. In the example, we sample from the following distribution:
+Get familiar with the [Monte Carlo](UQ/Monte_Carlo/MC.ipynb) (MC) method. In the example, we sample from the following distribution:
 
 $X\sim \mathcal{N}(0.5, 0.1)$.
 
 In the notebook, you can find a few tasks, such as varying the sample size or changing the distribution. This will help you to explore how different parameters influence the results and how the Monte Carlo method works in practice.
 
 ### 3.2 Monte Carlo as an UM-Bridge Client
-Next, you will implement the MC method as an UM-Bridge client. [Here](UQ/MC_client.ipynb) you can find an example MC client template.
+Next, you will implement the MC method as an UM-Bridge client. [Here](UQ/Monte_Carlo/MC_client.ipynb) you can find an example MC client template.
 
 #### Solve an Integral using UM-Bridge
 The final step of this exercise involves using the UM-Bridge framework to solve the following integral:
 
 $\int_{0}^{1} f(x) \\textit{d}x$, where $f(x) = sin(2\pi x)$.
 
-1. Run the [UM-Bridge server](UQ/MC_server.ipynb) as defined in section **2.1** to set up the model.
-2. Connect the [MC client](UQ/MC_client.ipynb) to the server and evaluate the function $f(x)$ at random points $X_i \sim \mathcal{U}([0, 1])$.
+1. Run the [UM-Bridge server](UQ/Monte_Carlo/MC_server.ipynb) as defined in section **2.1** to set up the model.
+2. Connect the [MC client](UQ/Monte_Carlo/MC_client.ipynb) to the server and evaluate the function $f(x)$ at random points $X_i \sim \mathcal{U}([0, 1])$.
 3. Look at the result of the MC estimator and vary the sample size $N$ to see how it affects the accuracy of the estimate.
 
 ## 4 UQ Application
@@ -110,10 +110,10 @@ We encourage you to form teams and work on projects, focusing on one of these ar
 In this exercise we explore variations of the Monte Carlo method by introducing the Quasi Monte Carlo (QMC) and Markov Chain Monte Carlo (MCMC) methods. These methods are built on concepts from the previous section and offer different approaches to improving convergence and solving specific types of problems.
 
 ### 5.1 Quasi Monte Carlo
-The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for more uniform sampling. Get familiar with the [Quasi Monte Carlo](UQ/QMC.ipynb) (QMC) method and implement it as an UM-Bridge client. You can find a sample solution [here](UQ/QMC_client.ipynb).
+The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for more uniform sampling. Get familiar with the [Quasi Monte Carlo](UQ/Quasi_Monte_Carlo/QMC.ipynb) (QMC) method and implement it as an UM-Bridge client. You can find a sample solution [here](UQ/Quasi_Monte_Carlo/QMC_client.ipynb).
 
 ### 5.2 Markov Chain Monte Carlo
-In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/MCMC_posterior_server.ipynb) and for the client [here](UQ/MCMC_client.ipynb).
+In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/Markov_Chain_Monte_Carlo/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/Markov_Chain_Monte_Carlo/MCMC_posterior_server.ipynb) and for the client [here](UQ/Markov_Chain_Monte_Carlo/MCMC_client.ipynb).
 
 ### 5.3. Mulitlevel Monte Carlo
 If you are interested in looking deeper in the Multilevel Monte Carlo method, you can check [this notebook](UQ/Exercise_MLMC.ipynb).
@@ -133,10 +133,10 @@ Note: Make sure that the input and output dimensions of your UM-Bridge clients a
 In this section we are looking at some more advanced models.
 
 ### 6.1 Three Body Problem
-This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circular Restricted Three-Body Problem (CR3BP)](CR3BP/CR3BP_UQ.ipynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](CR3BP/CR3BP_client.ipynb) which is a commonly acknowledge algorithm for MCMC.
+This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circular Restricted Three-Body Problem (CR3BP)](Models/CR3BP/CR3BP_UQ.ipynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](Models/CR3BP/CR3BP_client.ipynb) which is a commonly acknowledge algorithm for MCMC.
 
 ### 6.2 Steady State Heat Conduction Problems
-This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Heat_Conduction/heatconduction_client.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
+This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Models/Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Models/Heat_Conduction/heatconduction_client.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
 ### 6.3 A computaionally demanding Model
 All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](UQ/L2-benchmark_model.ipynb) from the UM-Bridge benchmark. To test the L2-Sea model have a look at the [client](UQ/L2-benchmark_client.ipynb).
