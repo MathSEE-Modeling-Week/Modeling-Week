@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Notebook Test
         run: |
-          cd UQ/ && \
+          cd Models/Predator-Prey/ && \
           jupyter nbconvert --execute --to notebook --inplace predprey.ipynb
           echo "predprey successful"
           jupyter nbconvert --execute --to notebook --inplace predprey_UQ.ipynb
