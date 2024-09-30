@@ -24,7 +24,7 @@ The example solutions are all written in Python so we strongly suggest using Pyt
 In this first exercise we'll familiarize ourselves with ordinary differential equations (ODEs) and how they can be used to model real-world interactions between two species. Specifically, we'll explore the Lotka-Volterra equations, which describe the dynamics between predators and prey. We use this as a reference because it is a real-world example that, while not too complex, effectively demonstrates the interactions between different species.
 
 ### 1.1 Predator-Prey Model
-Refer to the first notebook: [Predator-Prey Dynamical System](UQ/predprey.ipynb). This contains a description of the model, along with exercises to help you study and understand the system.
+Refer to the first notebook: [Predator-Prey Dynamical System](Models/Predator-Prey/predprey.ipynb). This contains a description of the model, along with exercises to help you study and understand the system.
 
 In the third exercise we will examine the Predator-Prey Model as a UQ problem.
 
@@ -54,9 +54,9 @@ Compare your implementation to the [example solution](UQ/Monte_Carlo/MC_server.i
 ### 2.2 Predator-Prey Model as UM-Bridge Server
 Once you're comfortable with the simple example from 2.1, the next step is to implement the Predator-Prey model (introduced in 1.1) as an UM-Bridge server. The Predator-Prey model is more complex and will help you see how UM-Bridge can manage multi-dimensional models.
 
-For further details on UM-Bridge server implementation, revisit the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html). Once you're finished or if you need assistance, you can reference the sample implementation of the Predator-Prey Model server [here](UQ/predprey_server.ipynb) for guidance. 
+For further details on UM-Bridge server implementation, revisit the [UM-Bridge Documentation](https://um-bridge-benchmarks.readthedocs.io/en/docs/index.html). Once you're finished or if you need assistance, you can reference the sample implementation of the Predator-Prey Model server [here](Models/Predator-Prey/predprey_server.ipynb) for guidance. 
 
-After starting the notebook, your server is running and ready to handle requests from a client. Since the model itself has been implemented, we can proceed to make model evaluations. A client request corresponds to a function evaluation of the Lotka-Volterra system. To see how you can interact with the server and evaluate the model, refer to the [first client](/UQ/predprey_firstclient.ipynb). This notebook demonstrates how to connect to the Predator-Prey Model server and perform function evaluations by specifying the model parameters.
+After starting the notebook, your server is running and ready to handle requests from a client. Since the model itself has been implemented, we can proceed to make model evaluations. A client request corresponds to a function evaluation of the Lotka-Volterra system. To see how you can interact with the server and evaluate the model, refer to the [first client](Models/Predator-Prey/predprey_firstclient.ipynb). This notebook demonstrates how to connect to the Predator-Prey Model server and perform function evaluations by specifying the model parameters.
 
 For a more detailed explenation of UM-Bridge clients check out the [Client section](https://um-bridge-benchmarks.readthedocs.io/en/docs/umbridge/clients.html) in the UM-Bridge documentation.
 
@@ -89,14 +89,14 @@ $\int_{0}^{1} f(x) \\textit{d}x$, where $f(x) = sin(2\pi x)$.
 In this exercise we are looking at the Predator-Prey Model from section 1 as a UQ problem and solve it using the MC method.
 
 ### 4.1 Predator-Prey Model as a UQ problem
-For details on the UQ problem, refer to the following [notebook](UQ/predprey_UQ.ipynb). In this case, we consider a forward UQ problem where there are perturbations in the initial conditions for both predator and prey populations. The notebook also includes a Monte Carlo simulation, though it does not utilize the UM-Bridge framework.
+For details on the UQ problem, refer to the following [notebook](Models/Predator-Prey/predprey_UQ.ipynb). In this case, we consider a forward UQ problem where there are perturbations in the initial conditions for both predator and prey populations. The notebook also includes a Monte Carlo simulation, though it does not utilize the UM-Bridge framework.
 
 ### 4.2 MC Client for Predator-Prey Model
-Implement the MC simulation for the Predator-Prey Model as a UM-Bridge client. For a sample solution, refer to the  [MC client](UQ/predprey_client.ipynb) for the Predator-Prey Model.
+Implement the MC simulation for the Predator-Prey Model as a UM-Bridge client. For a sample solution, refer to the  [MC client](Models/Predator-Prey/predprey_client.ipynb) for the Predator-Prey Model.
 
 To solve the UQ problem for the Predator-Prey model with UM-Bridge, follow these steps:
 
-1. Run the [Predator-Prey model](UQ/predprey_server.ipynb) from exercise 2.2 to set up the server.
+1. Run the [Predator-Prey model](Models/Predator-Prey/predprey_server.ipynb) from exercise 2.2 to set up the server.
 2. Connect your MC client to the server and perform the simulation to evaluate the effect of uncertainty in the initial conditions.
 
 
@@ -116,10 +116,9 @@ The QMC method enhances basic Monte Carlo by using low-discrepancy sequences for
 In this section you will explore the general principles of the Markov Chain Monte Carlo (MCMC) method, with a focus on the Metropolis-Hastings algorithm. The [notebook](UQ/Markov_Chain_Monte_Carlo/MCMC.ipynb) demonstrates how to apply MCMC sampling to a 2D target distribution and provides an example using an UM-Bridge benchmark as target distribution. MCMC can be used to solve inverse UQ problems. Try implementing the given 2D target distribution as an UM-Bridge model (server) and the introduced Metropolis-Hastings algorithm as an UM-Bridge client. You can find a sample solution for the model [here](UQ/Markov_Chain_Monte_Carlo/MCMC_posterior_server.ipynb) and for the client [here](UQ/Markov_Chain_Monte_Carlo/MCMC_client.ipynb).
 
 ### 5.3. Mulitlevel Monte Carlo
-If you are interested in looking deeper in the Multilevel Monte Carlo method, you can check [this notebook](UQ/Exercise_MLMC.ipynb).
+If you are interested in looking deeper in the Multilevel Monte Carlo method, you can check [this notebook](UQ/Multilevel_Monte_Carlo/Exercise_MLMC.ipynb).
 
 ---
-
 ### The Benefit of UM-Bridge
 You might ask yourselves why we are implementing all these UQ methods as UM-Bridge clients instead of directly incorporating them into our models. What initially seems like an extra step actually provides a significant advantage: it allows you to implement your UQ code once and then apply it to any UM-Bridge model of your choice. This eliminates the need to repeatedly implement the same UQ method for different models.
 
@@ -139,7 +138,7 @@ This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you 
 This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Models/Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Models/Heat_Conduction/heatconduction_client.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
 ### 6.3 A computaionally demanding Model
-All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](UQ/L2-benchmark_model.ipynb) from the UM-Bridge benchmark. To test the L2-Sea model have a look at the [client](UQ/L2-benchmark_client.ipynb).
+All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](Models/L2-Sea/L2-benchmark_model.ipynb) from the UM-Bridge benchmark. To test the L2-Sea model have a look at the [client](Models/L2-Sea/L2-benchmark_client.ipynb).
 
 ## 7 High Performance Computing
 In this exercise you will learn how to run your model on a High Performance Computer (HPC).
