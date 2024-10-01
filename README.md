@@ -101,7 +101,7 @@ To solve the UQ problem for the Predator-Prey model with UM-Bridge, follow these
 
 
 ## Next Steps: Exploring Models and UQ Methods
-So far, you've been introduced to various simple models, UQ methods, and the UM-Bridge interface, gaining a foundational understanding of how these components work together. From this point on, you can choose to dive deeper into either advanced UQ methods (Section 5) or more complex models (Section 6).
+So far, you've been introduced to various simple models, UQ methods, and the UM-Bridge interface, gaining a foundational understanding of how these components work together. From this point on, you can choose to dive deeper into either advanced UQ methods (Section 5), more complex models (Section 6) or HPC (Section 7).
 
 We encourage you to form teams and work on projects, focusing on one of these areas. Modeling teams formulate a UQ problem, determining whether it is a forward or inverse problem. UQ teams study a UQ method. Ultimately, it would be ideal if modeling teams and UQ teams colloborate together. You can either work on one of the following topics or on one of the topics proposed by the researchers during the Modeling Week.
 
