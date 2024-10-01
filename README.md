@@ -132,12 +132,16 @@ Note: Make sure that the input and output dimensions of your UM-Bridge clients a
 In this section we are looking at some more advanced, real-life models. Once we identify the UQ challenge, we apply appropriate methods to quantify the uncertainties. As in the previous sections, we provide the models through UM-Bridge, referring to those with server-client integration.
 
 ### 6.1 Three Body Problem
-This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circular Restricted Three-Body Problem (CR3BP)](Models/CR3BP/CR3BP_UQ.ipynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](Models/CR3BP/CR3BP_client.ipynb) which is a commonly acknowledge algorithm for MCMC.
+This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circular Restricted Three-Body Problem (CR3BP)](Models/CR3BP/CR3BP_UQ.ipynb). You can review the construction of the UM-Bridge server [here](Models/CR3BP/CR3BP_server.ipynb), for this model. Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](Models/CR3BP/CR3BP_client.ipynb) which is a commonly acknowledge algorithm for MCMC. 
 
 ### 6.2 Steady State Heat Conduction Problems
-This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Models/Heat_Conduction/heatconduction_UQ.ipynb). Also, in this notebook [MCMC for Heat Equation](Models/Heat_Conduction/heatconduction_client.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
+This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Models/Heat_Conduction/heatconduction_UQ.ipynb). For the implementation of the model, check the UM-Bridge server [here](Models/Heat_Conduction/heatconduction_server.ipynb)
+Also, in this notebook [MCMC for Heat Equation](Models/Heat_Conduction/heatconduction_client.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
-### 6.3 A computaionally demanding Model
+### 6.3 Groundwater flow and Contaminant Transportation 
+
+
+### 6.4 A computaionally demanding Model
 All the previouse models we have looked at so far can be fastly computed. This is not always the case. An example for a more computationaly demanding model is the [L2-Sea model](Models/L2-Sea/L2-benchmark_model.ipynb) from the UM-Bridge benchmark. To test the L2-Sea model have a look at the [client](Models/L2-Sea/L2-benchmark_client.ipynb).
 
 ## 7 High Performance Computing
