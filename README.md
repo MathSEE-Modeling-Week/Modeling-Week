@@ -137,7 +137,7 @@ This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you 
 ### 6.2 Steady State Heat Conduction Problems
 This is an exercise that concerns UQ for Bayesian Inverse Problem governed by a PDE. The PDE that you will consider is the [Steady State Heat Equation](Models/Heat_Conduction/heatconduction_UQ.ipynb). For the implementation of the model, check the UM-Bridge server [here](Models/Heat_Conduction/heatconduction_server.ipynb). Also, in this notebook [MCMC for Heat Equation](Models/Heat_Conduction/heatconduction_client.ipynb) you will gain an understanding of how to create the MCMC algorithm for this problem. 
 
-### 6.3 Groundwater flow and Contaminant Transportation 
+### 6.3 Groundwater Flow and Contaminant Transportation 
 If you would like to advance your working in modeling, consider working on the exercises related to Groundwater Flow and Contaminant Transportation, [Exercise 1](Models/Groundwater_Flow_and_Contaminant_Transport/Exercise_ContaminantTransport_ForwardUQ.ipynb), [Exercise 2](Models/Groundwater_Flow_and_Contaminant_Transport/Exercise_ContaminantTransport_InverseUQ.ipynb). Each exercise addresses different types of uncertainties. As you dive into these problems, you may implement the model and solve using UM-Bridge server and client. 
 
 ### 6.4 A computaionally demanding Model
