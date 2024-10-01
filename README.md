@@ -129,7 +129,7 @@ Note: Make sure that the input and output dimensions of your UM-Bridge clients a
 ---
 
 ## 6 Advanced Models
-In this section we are looking at some more advanced models.
+In this section we are looking at some more advanced, real-life models. Once we identify the UQ challenge, we apply appropriate methods to quantify the uncertainties. As in the previous sections, we provide the models through UM-Bridge, referring to those with server-client integration.
 
 ### 6.1 Three Body Problem
 This exercise is about UQ for Bayesian Inverse Problem governed by ODEs and you will work on [Circular Restricted Three-Body Problem (CR3BP)](Models/CR3BP/CR3BP_UQ.ipynb). Moreover, you will learn how to construct [Metropolis Hastings algorithm for CR3BP](Models/CR3BP/CR3BP_client.ipynb) which is a commonly acknowledge algorithm for MCMC.
