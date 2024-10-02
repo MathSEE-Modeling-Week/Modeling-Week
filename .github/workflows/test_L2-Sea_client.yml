@@ -30,7 +30,8 @@ jobs:
         # Convert notebook to script
         cd Models/L2-Sea
         #docker run -it -p 4242:4242 linusseelinger/model-l2-sea &
-        docker run -p 4242:4242 linusseelinger/model-l2-sea &
+        #docker run -p 4242:4242 linusseelinger/model-l2-sea &
+        CONTAINER_ID=$(docker run -d -p 4242:4242 linusseelinger/model-l2-sea)
         #jupyter nbconvert --to script MC_server.ipynb
         #notebook_script="${notebook%.ipynb}.py"
             
@@ -58,12 +59,14 @@ jobs:
           echo "Error: L2-Sea client failed with exit code $script_exit_code."
         fi
 
+        docker stop $CONTAINER_ID
+        docker rm $CONTAINER_ID
         # Terminate the notebook process
-        if kill -0 $notebook_pid 2>/dev/null; then
-          echo "Terminating notebook process with PID $notebook_pid"
-          kill $notebook_pid
-          wait $notebook_pid
-          echo "Notebook process terminated."
-        else
-          echo "Notebook process already terminated."
-        fi
+        #if kill -0 $notebook_pid 2>/dev/null; then
+        #  echo "Terminating notebook process with PID $notebook_pid"
+        #  kill $notebook_pid
+        #  wait $notebook_pid
+        #  echo "Notebook process terminated."
+        #else
+        #  echo "Notebook process already terminated."
+        #fi
