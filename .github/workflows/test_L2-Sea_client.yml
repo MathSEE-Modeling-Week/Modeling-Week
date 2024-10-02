@@ -29,7 +29,8 @@ jobs:
         
         # Convert notebook to script
         cd Models/L2-Sea
-        docker run -it -p 4242:4242 linusseelinger/model-l2-sea &
+        #docker run -it -p 4242:4242 linusseelinger/model-l2-sea &
+        docker run -p 4242:4242 linusseelinger/model-l2-sea &
         #jupyter nbconvert --to script MC_server.ipynb
         #notebook_script="${notebook%.ipynb}.py"
             
