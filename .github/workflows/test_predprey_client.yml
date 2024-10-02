@@ -50,7 +50,7 @@ jobs:
 
         # Run second client
         jupyter nbconvert --execute --to notebook --inplace predprey_firstclient.ipynb
-        script_exit_code2 = $?
+        script_exit_code2=$?
         echo "Script exit code: $script_exit_code2"
 
         # Add exit codes
