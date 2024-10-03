@@ -1,0 +1,54 @@
+name: Test MCMC
+
+on: [push, pull_request]
+
+jobs:
+  execute-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install papermill jupyter numpy matplotlib scipy pytest umbridge arviz
+
+    - name: Run UM-Bridge Servers as Notebooks
+      run: |
+
+        # Set enviromental variables
+        export MODEL_URL="http://0.0.0.0:4243"
+        export INPUT_VALUE="0.1"
+        
+        # Convert notebook to script
+        cd UQ/Markov_Chain_Monte_Carlo
+        CONTAINER_ID=$(docker run -d -p 4243:4243 linusseelinger/benchmark-analytic-banana)
+            
+        echo "Waiting for model server to respond at $host:$port..."
+        while ! curl -s "http://0.0.0.0:4243/Info" > /dev/null; do
+          sleep 1
+        done
+        echo "Model server responded"
+
+        # Convert client to script
+        jupyter nbconvert --execute --to notebook --inplace MCMC.ipynb
+        script_exit_code=$?
+        echo "Script exit code: $script_exit_code"
+
+        echo ""
+
+        if [ $script_exit_code -eq 0 ]; then
+          echo "MCMC completed successfully."
+        else
+          echo "Error: MCMC failed with exit code $script_exit_code."
+        fi
+
+        docker stop $CONTAINER_ID
+        docker rm $CONTAINER_ID

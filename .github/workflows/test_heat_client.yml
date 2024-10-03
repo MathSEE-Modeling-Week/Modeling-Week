@@ -28,12 +28,12 @@ jobs:
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
-        cd Heat_Conduction
-        jupyter nbconvert --to script heatconduction_Server.ipynb
+        cd Models/Heat_Conduction
+        jupyter nbconvert --to script heatconduction_server.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
         # Run the notebook script in the background
-        python heatconduction_Server.py > /dev/null &
+        python heatconduction_server.py > /dev/null &
         notebook_pid=$!
         echo "Notebook script PID: $notebook_pid"
             
@@ -44,16 +44,16 @@ jobs:
         echo "Model server responded"
 
         # Convert client to script
-        jupyter nbconvert --execute --to notebook --inplace heatconduction_MCMC.ipynb
+        jupyter nbconvert --execute --to notebook --inplace heatconduction_client.ipynb
         script_exit_code=$?
         echo "Script exit code: $script_exit_code"
 
         echo ""
 
         if [ $script_exit_code -eq 0 ]; then
-          echo "MC clinet completed successfully."
+          echo "Heatconduction clinet completed successfully."
         else
-          echo "Error: MC client failed with exit code $script_exit_code."
+          echo "Error: Heatconduction client failed with exit code $script_exit_code."
         fi
 
         # Terminate the notebook process

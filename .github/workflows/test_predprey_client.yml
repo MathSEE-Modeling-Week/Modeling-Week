@@ -28,7 +28,7 @@ jobs:
         export INPUT_VALUE="0.1"
         
         # Convert notebook to script
-        cd UQ
+        cd Models/Predator-Prey
         jupyter nbconvert --to script predprey_server.ipynb
         notebook_script="${notebook%.ipynb}.py"
             
@@ -43,17 +43,25 @@ jobs:
         done
         echo "Model server responded"
 
-        # Convert client to script
+        # Run first client
         jupyter nbconvert --execute --to notebook --inplace predprey_client.ipynb
         script_exit_code=$?
         echo "Script exit code: $script_exit_code"
 
+        # Run second client
+        jupyter nbconvert --execute --to notebook --inplace predprey_firstclient.ipynb
+        script_exit_code2=$?
+        echo "Script exit code: $script_exit_code2"
+
+        # Add exit codes
+        script_exit_code=$((script_exit_code + script_exit_code2))
+
         echo ""
 
         if [ $script_exit_code -eq 0 ]; then
-          echo "MC clinet completed successfully."
+          echo "pred prey clinets completed successfully."
         else
-          echo "Error: MC client failed with exit code $script_exit_code."
+          echo "Error: pred prey clients failed with exit code $script_exit_code."
         fi
 
         # Terminate the notebook process
